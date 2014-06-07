@@ -1,0 +1,26 @@
+//
+// Wells
+// --------------------------------------------------
+
+
+// Base class
+// --------------------
+
+.well {
+  @include list-reset;
+  @include clearfix;
+  margin-bottom: $line-height-computed;
+  background-color: $almost-white;
+  > dt {
+    clear: both;
+    float: left;
+    width: 30%;
+    padding: 10px;
+  }
+  > dd {
+    float: left;
+    width: 70%;
+    padding: 10px;
+    border-left: 1px solid $gray-lightest;
+  }
+}

@@ -1,0 +1,28 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+{# Hands up!
+   This view uses translations from the 'WebBundle', to facilitate
+   the maintenance of texts.
+#}
+
+{% block content_inner %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <h1>{% trans %}_Secure_payment{% endtrans %}</h1>
+                <p>{% trans %}_The_user_may_carry_out_payment_by_card{% endtrans %}.</p>
+                <p>{% trans %}_In_the_event_that_the_user{% endtrans %}.</p>
+                <p>{% trans %}_The_charges_will_be_made_to_the_backcard{% endtrans %}.</p>
+                <p>{% trans %}_Payments_made_by_credit_card_will_not_incur{% endtrans %}.</p>
+                <p>{% trans %}_Please_bear_in_mind_that_the payment_gateway_provided{% endtrans %}.</p>
+                <p>{% trans %}_ChicPlace_states_that_it_do_not_have_access_to_confidential_information{% endtrans %}.</p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content_inner %}

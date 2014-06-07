@@ -1,0 +1,98 @@
+# *** Global layout ***
+
+#home page metas
+_root_title: Chicplace
+_root_meta_description: Tiendas con encanto de toda Europa en un único Boulevard que nunca cierra. Productos con estilo, únicos y artesanales de París, Barcelona, Madrid, Milán, y Berlín.
+_root_meta_keywords: ChicPlace,Tiendas,París,Milán,Berlín,Barcelona
+
+#layout global
+lang_code_complete: es_ES
+_Login: Entrar
+_Logout: Salir
+_tagline_title: De compras por las tiendas más Chic de Europa
+_Back: Volver
+_Loading: Cargando
+_Top: Subir
+_Add_to_cart: Añadir al carrito
+
+#navbar header
+_Categories: Categorías
+_Search: Buscar
+_Cart: Carrito
+
+#dropdown menu header
+_About_Chicplace: Sobre ChicPlace
+_Terms_of_use: Condiciones de uso
+_Privacy_policy: Política de privacidad
+_Contact_us: Contacta con nosotros
+_Secure_payment: Pago seguro
+_Delivery: Entrega
+_Switch_to_classic_view: Vista clásica
+
+
+# *** Flash messages ***
+
+_We_use_cookies_to_help_browsing_experience: ChicPlace está usando <a href="%cookies%">cookies</a> para ofreceros un mejor servicio. Navegando por este site aceptas su uso.
+_You_are_using_an_outdated_browser: Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> o <a href="http://www.google.com/chromeframe/?redirect=true">activa Google Chrome Frame</a> para mejorar tu experiencia.
+
+
+# *** Product ***
+
+_Other_items: Otros artículos
+_Other_items_by: Otros productos by
+_Select_a_color: Seleccionar color...
+_Selected_color: Color seleccionado
+
+
+# *** Shop ***
+
+_Shops: Tiendas
+_More_products: Más productos
+
+
+# *** Cart ***
+
+_Shipping_data: Datos de envío
+_Thank_you_very_much: ¡Muchas gracias!
+_Name: Nombre
+_Last_name: Apellidos
+_Quantity: Cantidad
+_Quantity_abbr: Cant.
+_Price: Precio
+_Checkout: Comprar
+_Continue_shopping: Seguir de shopping
+_Have_discount: ¿Tienes un cupón de descuento?
+_Ok: Ok
+_Total_products: Total de productos
+_Total_shipping: Total de envío
+_Total: Total
+_Remove: Quitar
+_Shipment_data: Datos de envío
+_Summary_shopping_cart: Resumen de tu carrito
+_Set_my_current_location: Establecer mi ubicación actual
+_Country: País
+_State: Estado
+_Province: Provincia
+_Postal_code: Código postal
+_Comments: Comentarios
+_City: Ciudad
+_Phone: Teléfono
+_Check_newsletter_personal_data: Marca la casilla si no quieres recibir nuestras ofertas especiales. No se utilizarán tus datos personales para acciones de marketing.
+_Check_terms_of_use: He leído y acepto las <a href="%term_use%" target="_blank">Condiciones de uso</a> y <a href="%privacy%" target="_blank">Privacidad</a>.
+_Continue: Continuar
+_Card_number: Número de tarjeta
+_Expiry_date: Fecha de caducidad
+_Security_code: Código de seguridad
+_Your_cart: Tu carrito
+_Your_data: Tus datos
+_Thank_you_very_much: ¡Muchas gracias!
+_Back_to_Home: Volver a la Home
+_Address: Dirección
+_Email: Email
+
+
+# *** Static pages ***
+
+#contact us
+_Schedule: Horario
+_Section: Sección

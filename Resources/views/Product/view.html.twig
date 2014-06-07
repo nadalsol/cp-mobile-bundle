@@ -1,0 +1,85 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+
+{% block content_inner %}
+
+    {# .Item (aka 'Product') #}
+    <div class="item">
+        <div class="container">
+            {# ..Brick #}
+            {% include "ChicplaceMobileBundle:Product/blocks:item_brick.html.twig" %}
+        </div>
+        <form id="item-add-to-cart" enctype="multipart/form-data" class="container" data-action="{{ url('cart_add_product_checkout', {'product_id' : '~~product_id~~'}) }}">
+            {# ..Add to cart #}
+            {% include "ChicplaceMobileBundle:Product/blocks:item_btn_add_to_cart.html.twig" %}
+            {# ..Specifications #}
+            {% include "ChicplaceMobileBundle:Product/blocks:item_specifications.html.twig" %}
+            {# ..Description #}
+            {% include "ChicplaceMobileBundle:Product/blocks:item_description.html.twig" %}
+            {# ..Social media share #}
+            {% include "ChicplaceMobileBundle:blocks:social_media_share.html.twig" %}
+            {# ..Add to cart #}
+            {% include "ChicplaceMobileBundle:Product/blocks:item_btn_add_to_cart.html.twig" %}
+        </form>
+        <div id="bricks-content" class="container">
+            <div class="row">
+                <div class="col col-sm-12">
+                    <h2>{{ '_Other_items' | trans }}</h2>
+                </div>
+            </div>
+
+            {# ..Bricks - Products #}
+            {% include "ChicplaceMobileBundle:Product:blocks/bricks_products.html.twig" with { products: related_products } %}
+        </div>
+    </div>
+
+{% endblock content_inner %}
+
+{% block foot_script %}
+    {{ parent() }}
+    {%- javascripts output='js/*.js'
+    '@ChicplaceWebBundle/Resources/public/js/item.js'
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+        var items = {};
+        {% for current_item in product.items %}
+        {% if current_item.enabled and not current_item.deleted and current_item.stock > 0 %}
+        var item = {};
+        item.price = "{{ current_item.price|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}";
+        item.price_reduced = "{{ 0|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}";
+        item.stock = "{{ current_item.stock }}";
+        item.has_reduction = false;
+        {% set priceReduced = 0 %}
+        {% if current_item.reducedPrice %}
+        item.price_reduced = "{{ (current_item.reducedPrice - discounts_price)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}";
+        {% set priceReduced = (current_item.reducedPrice - discounts_price) %}
+        {% elseif discounts_price %}
+        item.price_reduced = "{{ (current_item.price - discounts_price)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}";
+        {% set priceReduced = (current_item.price - discounts_price) %}
+        {% endif %}
+        {% if priceReduced > 0 %}
+        item.has_reduction = true;
+        item.price_difference = "{{ (current_item.price - priceReduced)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}";
+        {% endif %}
+        items[{{ current_item.id }}] = item;
+        {% endif %}
+        {% endfor %}
+        initItem({items: items});
+        if (Object.keys(items).length > 1) {
+            if ($("input[name='custom-colors']:checked").length > 0) {
+                $("input[name='custom-colors']:checked").trigger('change');
+            } else {
+                var first_selection = $(".attribute_select:first");
+                if (first_selection.find(':selected').length < 1) {
+                    var first_option = first_selection.children(':first');
+                    first_option.attr('selected', 'selected');
+                }
+                first_selection.trigger('change');
+            }
+        }
+    </script>
+{% endblock foot_script %}

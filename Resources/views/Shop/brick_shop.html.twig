@@ -1,0 +1,15 @@
+<div class="col col-sm-6" >
+    <div class="brick brick-default">
+        <a class="wrap-media" href="{{ url('shop_view', {'id' : shop.id}) }}">
+            <img class="lazy img-responsive" src="{{ shop.principalImage }}" alt="{{ shop.name }}">
+        </a>
+        <div class="brick-info">
+            <span class="brick-name">
+                {{ shop.name }}
+            </span>
+            <span class="brick-city">
+                {{ shop.shopAddress.cityName }}
+            </span>
+        </div>
+    </div>
+</div>

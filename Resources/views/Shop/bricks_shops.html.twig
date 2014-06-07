@@ -1,0 +1,25 @@
+{# Title #}
+<div class="row">
+    <div class="col col-sm-12">
+        <h1>{% trans %}_Shops{% endtrans %}</h1>
+    </div>
+</div>
+
+{# Bricks #}
+<div id="bricks-data"
+     data-bricks-url="{{ bricks_url }}"
+     data-bricks-column-number="1"
+     data-bricks-column-gutter="5" >
+    <div id="bricks-content">
+    {% for shop in pins%}
+        {% if loop.index0 % 2 == 0 %}
+        <div class="row">
+        {% endif %}
+            {% include "ChicplaceMobileBundle:Shop:brick_shop.html.twig" %}
+        {% if loop.index0 % 2 == 1 %}
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="row dropdown-menu-categories">
+    <div class="container">
+        {% set total = categories_tree|length %}
+        {% for category_data in categories_tree %}
+            {% if loop.index0 < 5 %} {# This limit is putted to don't broke the menu when would be added more categories #}
+                {% set category = category_data['entity'] %}
+            {% if loop.index0 % 4 == 0 %}
+                {% if loop.index0 != 0 %}
+                        </ul>
+                    </div>
+                {%  endif %}
+                <div class="col col-sm-6">
+                    <ul>
+            {%  endif %}
+
+            <li>
+                <a href="{{ url('category', {'category_id': category.id , 'slug': category.slug}) }}">{{ category.name }}</a>
+            </li>
+
+            {% endif %}
+        {% endfor %}
+            <li>
+                <a href="{{ url('customizable') }}">{{ '_Customizable'|trans }}</a>
+            </li>
+            <li>
+                <a href="{{ url('newproducts') }}">{{ '_Filter_new_products'|trans }}</a>
+            </li>
+            <li>
+                <a href="{{ url('shop_list') }}">{{ '_Shops'|trans }}</a>
+            </li>
+        </ul></div>
+    </div>
+</div>

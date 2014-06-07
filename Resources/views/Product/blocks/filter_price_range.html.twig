@@ -1,0 +1,17 @@
+<div class="slider slider-range">
+
+    {# Price slider: Amount labels #}
+    <p>
+        <span id="amount-min" data-min="{{ global_min_amount }}"></span> {{ app.request.getSession().get('currency', 'EUR') }}
+        -
+        <span id="amount-max" data-max="{{ global_max_amount }}"></span> {{ app.request.getSession().get('currency', 'EUR') }}
+    </p>
+    {# Price slider: Range #}
+    <div id="slider-range"></div>
+    {# Price slider: Limit indicators #}
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+
+</div>

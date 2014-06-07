@@ -1,0 +1,35 @@
+//
+// Social
+// --------------------------------------------------
+
+// Social media share buttons for Social Networks
+
+
+// Base class
+// --------------------
+
+//.social {}
+
+
+// Sub-classes
+// --------------------
+
+.social-share {
+  // Avoid using `list-inline` mixin, to prevent
+  // a bug caused by `display:inline-block`
+  @include list-reset;
+  margin-bottom: $line-height-computed;
+  @include clearfix;
+  li {
+    float: left;
+    padding-left: 5px;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+  .pinterest {
+    img {
+      vertical-align: top;
+    }
+  }
+}

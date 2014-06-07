@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col col-sm-12">
+        <div class="brick brick-item">
+            <div class="wrap-media">
+                {# TODO - Show single image or carousel when necessary #}
+                {#% if product.images | length == 1 % #}
+                    {# Single image #}
+                    {#<img class="img-responsive" src="{{ product.principalImage }}" alt=" ">#}
+                {# else #}
+                    {# Carousel #}
+                    {% include "ChicplaceMobileBundle:Product/blocks:carousel.html.twig" %}
+                {# endif #}
+            </div>
+            <div class="brick-info">
+                <h1 class="brick-name">
+                    {{ product.fullName }}
+                </h1>
+                <span class="brick-by">
+                    by
+                    <a href="{{ path('shop_view', {id : product.shop.id}) }}">{{ product.shop.name }}</a>,
+                    {{ product.shop.shopAddress.cityName }}
+                </span>
+                <span class="brick-price">
+                    {{ product.price }}€
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

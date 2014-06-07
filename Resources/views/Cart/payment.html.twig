@@ -1,0 +1,42 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+
+{% block content_inner %}
+
+    {# .Cart - step 3 #}
+    <div class="cart">
+        <div class="container">
+
+            {# ..Steps #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_steps.html.twig" with { step: 3 } %}
+
+            {# ..Payment #}
+            {#% include "ChicplaceMobileBundle:Cart:blocks/cart_payment.html.twig" %#}
+            <div id="payment-error" {% if (not (flashMessage is defined)) or (flashMessage is null) %}class="hide"{% endif %}>
+                {% include "ChicplaceWebBundle::flashmessage.html.twig" with {flashMessage: flashMessage, class: 'alert-error' } %}
+            </div>
+            {{ paymill_render() }}
+
+            {# ..Buttons #}
+            {#% include "ChicplaceMobileBundle:Cart:blocks/cart_continue_btn.html.twig" %#}
+
+            {# ..Payment methods #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_payment_methods.html.twig" %}
+
+            {# ..Summary #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_summary.html.twig" with { title: '_Summary_shopping_cart' } %}
+
+        </div>
+    </div>
+
+{% endblock content_inner %}
+
+{% block foot_script %}
+
+    {{ parent() }}
+
+    {{ paymill_scripts() }}
+
+{% endblock foot_script %}

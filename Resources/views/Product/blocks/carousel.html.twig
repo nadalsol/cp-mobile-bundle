@@ -1,0 +1,69 @@
+{% set show_default = true %}
+{% for item_id, images in product_images.items %}
+    {% if images|length > 0 %}
+        {% if item_id == id_default_item %}
+            {% set show_default = false %}
+        {% endif %}
+        <div id="carousel-item-{{ item_id }}" class="carousel slide{% if show_default %} hidden{% endif %}" data-ride="carousel">
+            <div id="product-itempictures-{{ item_id }}">
+                {# Carousel indicators #}
+                {% if images|length > 1 %}
+                    <ol class="carousel-indicators">
+                        {% for image in images %}
+                            <li data-target="#carousel-item-{{ item_id }}" data-slide-to="{{ loop.index0 }}"{% if loop.index0 == 0 %} class="active"{% endif %}></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+                {# Carousel items #}
+                <div class="carousel-inner">
+                    {% for image in images %}
+                        <div class="item{% if loop.index0 == 0 %} active{% endif %}">
+                            {# <img src="{{ asset('bundles/chicplaceweb/img/slide_products/placeholder_438x438_01.jpg') }}" alt=" "> #}
+                            <img class="{{ class }}" data-big-version="{{ image|resize({'height': 600, 'width': 600, 'type': 5, 'for': product}) }}" width="438" height="438" src="{{ image|resize({'height': 438, 'width': 438, 'type': 5, 'for': product}) }}" alt="{{ product.name }}">
+                        </div>
+                    {% endfor %}
+                </div>
+                {# Carousel nav #}
+                {% if images|length > 1 %}
+                    <a class="left carousel-control" href="#carousel-item-{{ item_id }}" data-slide="prev">
+                        <span class="icon icon-chevron-left icon-lg icon-primary"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-item-{{ item_id }}" data-slide="next">
+                        <span class="icon icon-chevron-right icon-lg icon-primary"></span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+<div id="carousel-item-default" class="carousel slide{% if show_default == false %} hidden{% endif %}">
+    <div id="product-mainpictures">
+        {# Carousel indicators #}
+        {% if product_images.product|length > 1 %}
+            <ol class="carousel-indicators">
+                {% for image in product_images.product %}
+                    <li data-target="#carousel-item-default" data-slide-to="{{ loop.index0 }}"{% if loop.index0 == 0 %} class="active"{% endif %}></li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+        {# Carousel items #}
+        <div class="carousel-inner">
+            {% for image in product_images.product %}
+                <div class="item{% if loop.index0 == 0 %} active{% endif %}">
+                    {# <img src="{{ asset('bundles/chicplaceweb/img/slide_products/placeholder_438x438_01.jpg') }}" alt=" "> #}
+                    <img class="{{ class }}" data-big-version="{{ image|resize({'height': 600, 'width': 600, 'type': 5, 'for': product}) }}" width="438" height="438" src="{{ image|resize({'height': 438, 'width': 438, 'type': 5, 'for': product}) }}" alt="{{ product|display_name }}">
+                </div>
+            {% endfor %}
+        </div>
+        {# Carousel nav #}
+        {% if product_images.product|length > 1 %}
+            <a class="left carousel-control" href="#carousel-item-default" data-slide="prev">
+                <span class="icon icon-chevron-left icon-lg icon-primary"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-item-default" data-slide="next">
+                <span class="icon icon-chevron-right icon-lg icon-primary"></span>
+            </a>
+        {% endif %}
+    </div>
+</div>

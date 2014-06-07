@@ -1,0 +1,98 @@
+# *** Global layout ***
+
+#home page metas
+_root_title: Chicplace
+_root_meta_description: Chicplace brings you the best of the best from around Europe, together under one roof. From Paris to Milan, from Barcelona to Berlin… On Chicplace you will only find shops with true charm.
+_root_meta_keywords: ChicPlace, shops, París, Milan, Barcelona, Berlin
+
+#layout global
+lang_code_complete: en_US
+_Login: Login
+_Logout: Logout
+_tagline_title: The most unique shops in Europe
+_Back: Back
+_Loading: Loading
+_Top: Top
+_Add_to_cart: Add to cart
+
+#navbar header
+_Categories: Categories
+_Search: Search
+_Cart: Cart
+
+#dropdown menu header
+_About_Chicplace: About ChicPlace
+_Terms_of_use: Terms of use
+_Privacy_policy: Privacy policy
+_Contact_us: Contact us
+_Secure_payment: Secure payment
+_Delivery: Delivery
+_Switch_to_classic_view: Switch to classic view
+
+
+# *** Flash messages ***
+
+_We_use_cookies_to_help_browsing_experience: We use <a href="%cookies%">cookies</a> to help give you the best possible browsing experience. By continuing to browse our site you accept our cookie policy.
+_You_are_using_an_outdated_browser: You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.
+
+
+# *** Product ***
+
+_Other_items: Other items
+_Other_items_by: Other items by
+_Select_a_color: Select a color...
+_Selected_color: Selected color
+
+
+# *** Shop ***
+
+_Shops: Shops
+_More_products: More products
+
+
+# *** Cart ***
+
+_Shipping_data: Shipping data
+_Thank_you_very_much: Thank you very much!
+_Name: Name
+_Last_name: Last name
+_Quantity: Quantity
+_Quantity_abbr: Quant.
+_Price: Price
+_Checkout: Buy
+_Continue_shopping: Continue shopping
+_Have_discount: Have a discount coupon
+_Ok: Ok
+_Total_products: Total of products
+_Total_shipping: Total of shipping
+_Total: Total
+_Remove: Remove
+_Shipment_data: Shipment data
+_Summary_shopping_cart: Summary of your shopping cart
+_Set_my_current_location: Set my current location
+_Country: Country
+_State: State
+_Province: Province
+_Postal_code: Postal code
+_Comments: Comments
+_City: City
+_Phone: Phone
+_Check_newsletter_personal_data: Check the box if you do not want to receive our Newsletter. Do not use your personal data for marketing.
+_Check_terms_of_use: I have read and accept the <a href="%term_use%" target="_blank">Terms of Use</a> and <a href="%privacy%" target="_blank">Privacy</a>.
+_Continue: Continue
+_Card_number: Card number
+_Expiry_date: Expiry date
+_Security_code: Security code
+_Your_cart: Your cart
+_Your_data: Your data
+_Thank_you_very_much: Thank you very much!
+_Back_to_Home: Back to Home
+_Address: Address
+_Email: Email
+
+
+# *** Static pages ***
+
+#contact us
+_Schedule: Schedule
+_Section: Section

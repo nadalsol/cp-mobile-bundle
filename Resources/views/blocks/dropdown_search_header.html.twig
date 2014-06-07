@@ -1,0 +1,16 @@
+<div class="dropdown dropdown-search hidden">
+    <div class="container">
+
+        <form class="dropdown-search-form" action="{{ url('filter') }}" method="get">
+            {#<div class="ui-widget">#}
+                <input type="text" id="query" name="query" class="form-control" placeholder="{% trans %}_Search{% endtrans %}…">
+            {#</div>#}
+            <button type="submit" class="btn btn-unstyled">
+                {# To prevent icon font transparency, an image is used instead #}
+                <img src="{{ asset('bundles/chicplacemobile/img/icon-search-circle.png') }}" width="34" height="34" alt="{% trans %}_Search{% endtrans %}">
+                {#<span class="icon icon-search-circle icon-md icon-primary"></span>#}
+            </button>
+        </form>
+
+    </div>
+</div>

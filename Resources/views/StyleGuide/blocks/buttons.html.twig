@@ -1,0 +1,242 @@
+{# .Buttons #}
+<div class="sg-box-lg">
+
+    <div class="sg-box-sm">
+        <div class="row">
+            <div class="col col-sm-12">
+                <h2>Buttons</h2>
+                <ul>
+                    <li>
+                        <strong>Base class:</strong>
+                        <code>.btn</code>
+                    </li>
+                    <li>
+                        <strong>Sizes:</strong>
+                        <ul>
+                            <li>Add <code>.btn-lg</code> or <code>.btn-sm</code> for additional sizes.</li>
+                            <li>Create block level buttons —those that span the full width of a parent— by adding <code>.btn-block</code>.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>States:</strong>
+                        <ul>
+                            <li>No need to add <code>:active</code> as it's a pseudo-class, but if you need to force the same appearance, go ahead and add <code>.active</code>.</li>
+                            <li>Add the <code>disabled</code> attribute to <code>&lt;button&gt;</code> buttons.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {# ..Button Default #}
+    <div class="sg-box-sm">
+        <div class="row">
+            <div class="col col-sm-12">
+                <h3>Default</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['large', 'large (act)', 'large (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-default', 'btn-default active', 'btn-default disabled'], loop.index0) }} btn-lg">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['default', 'default (act)', 'default (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-default', 'btn-default active', 'btn-default disabled'], loop.index0) }}">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['small', 'small (act)', 'small (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-default', 'btn-default active', 'btn-default disabled'], loop.index0) }} btn-sm">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {# ..Button Primary #}
+    <div class="sg-box-sm">
+        <div class="row">
+            <div class="col col-sm-12">
+                <h3>Primary</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['large', 'large (act)', 'large (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-primary', 'btn-primary active', 'btn-primary disabled'], loop.index0) }} btn-lg">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['default', 'default (act)', 'default (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-primary', 'btn-primary active', 'btn-primary disabled'], loop.index0) }}">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['small', 'small (act)', 'small (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-primary', 'btn-primary active', 'btn-primary disabled'], loop.index0) }} btn-sm">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {# ..Button Info #}
+    <div class="sg-box-sm">
+        <div class="row">
+            <div class="col col-sm-12">
+                <h3>Info</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['large', 'large (act)', 'large (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-info', 'btn-info active', 'btn-info disabled'], loop.index0) }} btn-lg">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['default', 'default (act)', 'default (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-info', 'btn-info active', 'btn-info disabled'], loop.index0) }}">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for i in 0..2 %}
+                <div class="col col-sm-4">
+                    <p>
+                        <strong>{{ cycle(['small', 'small (act)', 'small (dis)'], loop.index0) }}</strong>
+                    </p>
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-info', 'btn-info active', 'btn-info disabled'], loop.index0) }} btn-sm">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {# ..Block Level Buttons #}
+    <div class="sg-box-sm">
+        <div class="row">
+            <div class="col col-sm-12">
+                <h3>Block Level Buttons</h3>
+            </div>
+        </div>
+        {% for i in 0..2 %}
+            <div class="row">
+                <div class="col col-sm-12">
+                    {% if loop.index0 == 0 %}
+                        <p>
+                            <strong>large</strong>
+                        </p>
+                    {% endif %}
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-default', 'btn-primary', 'btn-info'], loop.index0) }} btn-lg btn-block">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+        {% for i in 0..2 %}
+            <div class="row">
+                <div class="col col-sm-12">
+                    {% if loop.index0 == 0 %}
+                        <p>
+                            <strong>default</strong>
+                        </p>
+                    {% endif %}
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-default', 'btn-primary', 'btn-info'], loop.index0) }} btn-block">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+        {% for i in 0..2 %}
+            <div class="row">
+                <div class="col col-sm-12">
+                    {% if loop.index0 == 0 %}
+                        <p>
+                            <strong>small</strong>
+                        </p>
+                    {% endif %}
+                    <p>
+                        <button type="button" class="btn {{ cycle(['btn-default', 'btn-primary', 'btn-info'], loop.index0) }} btn-sm btn-block">
+                            Button
+                        </button>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>

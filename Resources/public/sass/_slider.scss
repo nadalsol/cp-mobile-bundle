@@ -1,0 +1,73 @@
+//
+// Slider Range
+// --------------------------------------------------
+
+
+// Base class
+// --------------------
+
+.slider {
+  width: 94%;
+  @include center-block;
+  p {
+    text-align: center;
+    margin-bottom: $line-height-computed / 4;
+  }
+  ul {
+    @include list-reset;
+    @include clearfix;
+  }
+  li {
+    float: right;
+    width: 40px;
+    font-size: $font-size-sm;
+    text-align: right;
+    &:first-child {
+      float: left;
+      text-align: left;
+    }
+  }
+}
+
+
+// Sub-classes
+// --------------------
+
+// jQuery UI "Range Slider" customization (http://jqueryui.com/slider/#range)
+//
+// Prefixed with '.slider-range', to override default jQuery UI styles
+.slider-range {
+  .ui-slider-horizontal {
+    height: 1.2em;
+    .ui-slider-handle {
+      top: 0;
+    }
+  }
+  .ui-slider {
+    margin-bottom: $line-height-computed / 4;
+    .ui-slider-handle {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .ui-widget-header {
+    background: $brand-primary;
+  }
+  .ui-widget-content {
+    border: none;
+    background: $gray-lighter;
+  }
+  .ui-state-default,
+  .ui-widget-content .ui-state-default {
+    border: 2px solid $brand-primary;
+    background: $white;
+    @include gradient-vertical($white, $gray-lightest);
+  }
+  .ui-corner-all {
+    @include border-radius(12px);
+  }
+  .ui-slider-range.ui-corner-all {
+    @include border-radius(0);
+  }
+}

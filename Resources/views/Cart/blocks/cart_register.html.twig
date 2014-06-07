@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col col-sm-12">
+
+        <h1>{% trans %}_Shipment_data{% endtrans %}</h1>
+
+        <div class="form-group">
+            {{ form_widget(form.email.first, {attr: {class: 'form-control', placeholder: '_Email'|trans} }) }}
+            {{ form_widget(form.email.second, {attr: {class: 'form-control hidden', placeholder: '_Email'|trans} }) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_widget(form.name, {attr: {class: 'form-control', placeholder: '_Name'|trans} }) }}
+            {{ form_widget(form.deliveryAddress.recipientName, {attr: {class: 'hidden', placeholder: '_Name'|trans} }) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_widget(form.surname, {attr: {class: 'form-control', placeholder: '_Last_name'|trans} }) }}
+            {{ form_widget(form.deliveryAddress.recipientSurname, {attr: {class: 'hidden', placeholder: '_Name'|trans} }) }}
+        </div>
+
+        <div class="form-group">
+            <button type="button" id="geolocation-registry-button" data-countryapi="{{ url('api_countryid_by_code') }}" data-locale="{{ app.request.locale }}" class="btn btn-primary btn-block">
+                {% trans %}_Set_my_current_location{% endtrans %}
+                <span class="icon icon-geolocation icon-primary icon-sm"></span>
+            </button>
+        </div>
+
+        <div id="delivery-address-group" class="hidden">
+            <div class="form-group">
+                {{ form_widget(form.deliveryAddress.country, {attr: {required: true, class: 'form-control', placeholder: '_Country'|trans}} ) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.deliveryAddress.address, {attr: {required: true, class: 'form-control', placeholder: '_Address'|trans} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.deliveryAddress.addressMore, {attr: {class: 'form-control', placeholder: '_Address'|trans ~ ' (2)'} }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.deliveryAddress.cityName, {attr: {required: true, class: 'form-control', placeholder: '_City'|trans}} ) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.deliveryAddress.postalCode, {attr: {required: true, class: 'form-control', placeholder: '_Postal_code'|trans}} ) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                {{ form_widget(form.deliveryAddress.phone, {attr: {required: true, class: 'form-control', placeholder: '_Phone'|trans}} ) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_widget(form.deliveryAddress.comments, { attr: {id: 'delivery-address-comments', class: 'form-control', 'cols': '30', 'rows': '1', placeholder: '_Comments'|trans } }) }}
+        </div>
+
+        <div class="checkbox">
+            <label class="help-block">
+                {{ form_widget(form.newsletter) }}
+                {% trans %}_Check_newsletter_personal_data{% endtrans %}
+            </label>
+        </div>
+
+        <div class="checkbox">
+            <label class="help-block">
+                {{ form_widget(form.termsOfUse) }}
+                {{ '_Check_terms_of_use' | trans({'%term_use%': url("termsofuse"), '%privacy%': url("privacypolicy"), '%cgv%': url("cgv")}) | raw  }}
+            </label>
+        </div>
+
+    </div>
+</div>
+<script language="javascript">
+    window.onload = function() {
+        $("#chicplace_register_email_first").change(function(){
+            $("#chicplace_register_email_second").val($("#chicplace_register_email_first").val());
+        })
+        $("#chicplace_register_name").change(function(){
+            $("#chicplace_register_deliveryAddress_recipientName").val($("#chicplace_register_name").val());
+        })
+        $("#chicplace_register_surname").change(function(){
+            $("#chicplace_register_deliveryAddress_recipientSurname").val($("#chicplace_register_surname").val());
+        })
+    };
+</script>

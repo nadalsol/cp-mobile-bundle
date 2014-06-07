@@ -1,0 +1,23 @@
+//
+// Item (aka 'Product')
+// --------------------------------------------------
+
+
+// Base class
+// --------------------
+
+//.item {}
+
+
+// Inner classes
+// --------------------
+
+.item-specifications {
+  @extend .media-list;
+}
+
+.item-color {
+  border: 1px solid $gray;
+  background-color: $white; // default bg color (will be replaced dynamically, via JS, in the template)
+  @include transition(background-color .2s linear);
+}

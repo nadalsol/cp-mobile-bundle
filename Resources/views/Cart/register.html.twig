@@ -1,0 +1,31 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+
+{% block content_inner %}
+
+    {# .Cart - step 2 #}
+    <div class="cart">
+
+        {{ form_start(form, {attr : {action : "", class:"container" } } ) }}
+            {# ..Steps #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_steps.html.twig" with { step: 2 } %}
+
+            {# ..Register #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_register.html.twig" %}
+
+            {# ..Buttons #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_continue_btn.html.twig" %}
+
+            {# ..Payment methods #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_payment_methods.html.twig" %}
+
+            {# ..Summary #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_summary.html.twig" with { title: '_Summary_shopping_cart', cart: cart } %}
+
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest' : false} ) }}
+    </div>
+
+{% endblock content_inner %}

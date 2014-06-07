@@ -1,0 +1,8 @@
+<select class="form-control input-sm js-language-select">
+    {% for language in languages %}
+        {% set localised_url = url(master_route, master_params|merge({'_locale' : language.iso})) %}
+        <option value="{{ localised_url }}" {% if language.iso == app.request.locale %}selected="selected"{% endif %}>
+            {{ language.name }}
+        </option>
+    {% endfor %}
+</select>

@@ -1,0 +1,104 @@
+{% extends 'ChicplaceMobileBundle::base.html.twig' %}
+{# Don't forget to..
+ * Place JS requests at the end of the document (via "foot_script" block), when possible, for better performance.
+ * CSS and JS files are not being minified because '?yui_css' filter is not being used. In the meanwhile, minify it with the
+   'sass --watch --style compressed BundleName/Resources/public/sass:BundleName/Resources/public/css' bash command.
+#}
+
+
+{% block head_style %}
+    {% stylesheets filter='cssrewrite' output='css/*.css'
+        'bundles/chicplacemobile/css/base.css'
+        'bundles/chicplacemobile/css/jquery-ui/cupertino/jquery-ui-1.10.3.custom.min.css'
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet">
+    {% endstylesheets %}
+    {# Enabling CSS source maps #}
+    {#<link href="{{ asset('bundles/chicplacemobile/css/base.css') }}" type="text/css" rel="stylesheet">#}
+{% endblock head_style %}
+
+{% block meta_tags %}
+    <meta name="robots" content="noindex, follow">
+{% endblock meta_tags %}
+
+
+{% block head_script %}
+{% endblock head_script %}
+
+
+{% block body %}
+
+    {# Header #}
+    {% block header %}
+    <header id="header">
+        {% block header_inner %}
+            {% include "ChicplaceMobileBundle:blocks:nav_main_header.html.twig" %}
+            {% include "ChicplaceMobileBundle:blocks:dropdown_menu.html.twig" %}
+            {% include "ChicplaceMobileBundle:blocks:dropdown_search_header.html.twig" %}
+        {% endblock header_inner %}
+    </header>
+    {% endblock header %}
+
+    {# Content #}
+    {% block content %}
+    <div id="content">
+        {% block content_notification_messages %}
+            {% include "ChicplaceMobileBundle:blocks:messages.html.twig" %}
+        {% endblock content_notification_messages %}
+        {% block content_inner %}
+        {% endblock content_inner %}
+    </div>
+    {% endblock content %}
+
+    {# Button "To top" #}
+    {% block btn_to_top %}
+    {% endblock btn_to_top %}
+
+    {# Cookies #}
+    {% block cookies_message %}
+        {% if app.session.get('cookie_warning_shown') != true and app.request.locale == 'es' %}
+            {% include "ChicplaceMobileBundle:blocks:cookies_message.html.twig" %}
+        {% endif %}
+    {% endblock cookies_message %}
+
+{% endblock body %}
+
+{% block foot_script %}
+    
+    {# JS placed at the end of the document. The pages load faster :)
+     #
+     # Bootstrap JS customized via http://getbootstrap.com/customize/
+     #
+     # JavaScript components included
+     # -------------------------------
+     # 1. Component animations (for JS).
+     # 2. Carousel
+     #
+     # jQuery plugins
+     # ---------------
+     # 1. Alert dismissal.
+     # 2. Carousel functionality
+     # 3. Transitions (required for any kind of animation)
+     #
+     #}
+    {%- javascripts output='js/*.js' filter='?yui_js'
+        '../vendor/jquery/jquery/jquery-1.9.1.js'
+        'bundles/chicplacemobile/js/jquery-ui/jquery-ui-1.10.3.custom.min.js'
+        'bundles/chicplacemobile/js/bootstrap/bootstrap.min.js'
+        'bundles/chicplacemobile/js/filter.js'
+        'bundles/chicplacemobile/js/app.js'
+        '@ChicplaceWebBundle/Resources/public/js/repos.js'
+        'bundles/chicplacemobile/js/infinitescroll.js'
+        '@BaseEcommerceCoreBundle/Resources/public/js/core.js'
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+
+    {% block pre_foot_script_end %}
+    {% if pre_foot_script_blocks is defined %}
+    {% for block in pre_foot_script_blocks %}
+        {{ block|raw }}
+    {% endfor %}
+    {% endif %}
+    {% endblock pre_foot_script_end %}
+{% endblock foot_script %}

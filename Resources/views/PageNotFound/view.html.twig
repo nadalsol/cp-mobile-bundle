@@ -1,0 +1,36 @@
+{% set analyticsPageTrack = '/404/error-404' %}
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_Sorry_this_page_is_not_available{% endtrans %}{% endblock title %}
+
+{% block meta_tags %}<meta name="robots" content="noindex, follow">{% endblock meta_tags %}
+
+{# Hands up!
+   This view uses translations from the 'WebBundle', to facilitate
+   the maintenance of texts.
+   This view uses images from the 'WebBundle', because desktop
+   image sizes are valid for this particular case.
+#}
+
+{% block content_inner %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <h1>{% trans %}_Sorry_this_page_is_not_available{% endtrans %}</h1>
+                <p>
+                    <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/page_not_found.jpg') }}" alt="{% trans %}_Sorry_this_page_is_not_available{% endtrans %}">
+                </p>
+                <p class="text-center">{% trans %}_The_requested_URL_was_not_found{% endtrans %}.</p>
+                <p>
+                    <a href="{{ url('homepage') }}" class="btn btn-primary btn-lg btn-block">
+                        {% trans %}_Back_to_Home{% endtrans %}
+                    </a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content_inner %}

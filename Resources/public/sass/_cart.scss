@@ -1,0 +1,50 @@
+//
+// Cart
+// --------------------------------------------------
+
+
+// Base class
+// --------------------
+
+//.cart {}
+
+
+// Sub-classes
+// --------------------
+
+//.cart-sub {}
+
+
+// Inner classes
+// --------------------
+
+.cart-steps {
+  margin-bottom: $line-height-computed / 4;
+  @include clearfix;
+  ol {
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    font-size: $font-size-sm;
+    line-height: 1.6; // ~24px
+    color: $white;
+    text-align: center;
+    @include clearfix;
+    > li {
+      float: left;
+      @include size(24px, 24px);
+      margin-left: 10px;
+      @include border-radius(50%);
+      background-color: $gray-light;
+      &.active {
+        background-color: $brand-active;
+      }
+    }
+  }
+}
+
+.cart-personal-data {
+  @extend .well;
+}

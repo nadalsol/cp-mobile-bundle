@@ -1,0 +1,32 @@
+//
+// Collapser
+// --------------------------------------------------
+
+// Collapser/Expander effect
+
+
+// Base class
+// --------------------
+
+.collapser {
+  // default state
+  .collapser-content {
+    display: none;
+  }
+  // 'expanded' state
+  &.expanded {
+    .collapser-content {
+      display: block;
+    }
+  }
+}
+
+
+// Sub-classes
+// --------------------
+
+.collapser-cart {
+  .collapser-content {
+    margin-top: $line-height-computed / 4;
+  }
+}

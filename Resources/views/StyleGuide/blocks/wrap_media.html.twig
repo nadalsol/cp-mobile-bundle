@@ -1,0 +1,62 @@
+{# .Wrap media #}
+<div class="sg-box-lg">
+
+    <div class="sg-box-sm">
+        <div class="row">
+            <div class="col col-sm-12">
+                <h2>Wrap media</h2>
+                <p>A wrapper for media elements.</p>
+                <ul>
+                    <li>Use <code>.wrap-media</code> to wrap content (usually <code>&lt;img&gt;</code>).</li>
+                    <li>Apply <code>.wrap-media-overlap</code> to a wrapper (usually <code>&lt;a&gt;</code> or <code>&lt;div&gt;</code>), to overlap and position nested elements (usually buttons or icons) over media content (usually <code>&lt;img&gt;</code>).</li>
+                    <li>Use <code>&lt;div&gt;</code> instead of <code>&lt;a&gt;</code> to disable links.</li>
+                </ul>
+                <p>Example <strong>(link):</strong></p>
+                <p>
+<pre><code>&lt;a class="wrap-media wrap-media-overlap" href="#"&gt;
+    &lt;span class="btn"&gt;I'm a button&lt;/span&gt;
+    &lt;img src="http://placehold.it/250x250" alt="Lorem ipsum"&gt;
+&lt;/a&gt;</code></pre>
+                </p>
+                <p>Example <strong>(no link):</strong></p>
+                <p>
+<pre><code>&lt;div class="wrap-media wrap-media-overlap"&gt;
+    &lt;span class="btn"&gt;I'm a button&lt;/span&gt;
+    &lt;img src="http://placehold.it/250x250" alt="Lorem ipsum"&gt;
+&lt;/div&gt;</code></pre>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    {% for i in 0..1 %}
+        <div class="col col-sm-6">
+            <div class="brick brick-default">
+                <a class="wrap-media wrap-media-overlap" href="#">
+                    <span class="btn btn-tag btn-tag-t {{ cycle(['btn-tag-l', 'btn-tag-r'], loop.index0) }}">
+                        Lorem
+                    </span>
+                    <img class="img-responsive" src="http://placehold.it/250x250" alt="Lorem ipsum">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="row">
+    {% for i in 0..1 %}
+        <div class="col col-sm-6">
+            <div class="brick brick-default">
+                <a class="wrap-media wrap-media-overlap" href="#">
+                    <span class="btn btn-tag btn-tag-b {{ cycle(['btn-tag-l', 'btn-tag-r'], loop.index0) }}">
+                        Lorem
+                    </span>
+                    <img class="img-responsive" src="http://placehold.it/250x250" alt="Lorem ipsum">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+</div>

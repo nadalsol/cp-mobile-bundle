@@ -1,0 +1,34 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - Mobile Style Guide / UI Pattern Library{% endblock title %}
+
+{% block meta_tags %}<meta name="robots" content="noindex, nofollow">{% endblock meta_tags %}
+
+{% block body_class %}class="sg"{% endblock body_class %}
+
+
+{% block header_inner %}
+
+    <div class="container">
+        
+        {% include "ChicplaceMobileBundle:StyleGuide:blocks/header.html.twig" %}
+
+    </div>
+
+{% endblock header_inner %}
+
+
+{% block content_inner %}
+
+    <div class="container">
+
+        {% include "ChicplaceMobileBundle:StyleGuide:blocks/headings.html.twig" %}
+        {% include "ChicplaceMobileBundle:StyleGuide:blocks/buttons.html.twig" %}
+        {% include "ChicplaceMobileBundle:StyleGuide:blocks/wrap_media.html.twig" %}
+        {% include "ChicplaceMobileBundle:StyleGuide:blocks/bricks.html.twig" %}
+        {% include "ChicplaceMobileBundle:StyleGuide:blocks/loader.html.twig" %}
+        {% include "ChicplaceMobileBundle:StyleGuide:blocks/icons.html.twig" %}
+
+    </div>
+
+{% endblock content_inner %}

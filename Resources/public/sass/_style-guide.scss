@@ -1,0 +1,54 @@
+//
+// Style Guide / UI Pattern Library
+// --------------------------------------------------
+
+//
+// http://m.chicplace.com/es/styleguide
+//
+// A website Style Guide is an ideal way to ensure brand identity,
+// professionalism and consistency across your site.
+// Read: http://www.netmagazine.com/features/create-website-style-guide
+//
+
+
+// Base class
+// --------------------
+
+.sg {
+  margin-top: $line-height-computed * 2;
+  margin-bottom: $line-height-computed * 2;
+  #header {
+    height: auto;
+    .icon-logo {
+      font-size: 80px;
+    }
+    h1 {
+      margin-bottom: 0;
+      line-height: 2.2;
+    }
+  }
+  pre {
+    padding: 5px;
+    background-color: $gray-darkest;
+    @include border-radius(3px);
+  }
+  code {
+    padding: 0 5px;
+    font-size: $font-size-xs;
+    color: yellow;
+    white-space: pre-wrap;
+    background-color: $gray-darkest;
+    @include border-radius(3px);
+  }
+}
+
+
+// Inner classes
+// --------------------
+
+.sg-box-lg {
+  margin-bottom: $vertical-space-lg;
+}
+.sg-box-sm {
+  margin-bottom: $vertical-space-sm;
+}

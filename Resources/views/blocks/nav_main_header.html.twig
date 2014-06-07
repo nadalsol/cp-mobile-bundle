@@ -1,0 +1,25 @@
+<nav class="navbar navbar-header">
+    <div class="container">
+        
+        <a class="navbar-header-logo" href="{{ url('homepage') }}">
+            <span class="icon icon-logo"></span>
+        </a>
+
+        <ul class="navbar-header-links">
+            <li>
+                <a href="#" class="toggle" data-toggle="dropdown-menu">
+                    <span class="icon icon-th icon-sm"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="toggle" data-toggle="dropdown-search">
+                    <span class="icon icon-search icon-sm"></span>
+                </a>
+            </li>
+            <li>
+                {% render(url("cart_view_topbar")) %}
+            </li>
+        </ul>
+
+    </div>
+</nav>

@@ -1,0 +1,72 @@
+{# Title (optional) #}
+{% if title %}
+<div class="row">
+    <div class="col col-sm-12">
+        <h2>{{ title | trans }}</h2>
+    </div>
+</div>
+{% endif %}
+
+{# Summary #}
+<div class="row">
+    <div class="col col-sm-12">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>{% trans %}_Name{% endtrans %}</th>
+                    <th class="text-center"><abbr title="{% trans %}_Quantity{% endtrans %}">{% trans %}_Quantity_abbr{% endtrans %}</abbr></th>
+                    <th class="text-right">{% trans %}_Price{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for line in cart.lines %}
+                <tr>
+                    <td>
+                        {{ line }}
+                    </td>
+                    <td class="text-center">
+                        {{ line.quantity }}
+                    </td>
+                    <td class="text-right text-highlight">
+                        {{ line.price|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr class="table-row-highlight">
+                    <td colspan="2">
+                        {% trans %}_Total_products{% endtrans %}
+                    </td>
+                    <td class="text-right">
+                        {{ cart.priceProducts|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </td>
+                </tr>
+                <tr class="table-row-highlight-plain">
+                    <td colspan="2">
+                        {% trans %}_Total_shipping{% endtrans %}
+                    </td>
+                    <td class="text-right">
+                        {{ cart.priceShipping|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </td>
+                </tr>
+                {% if (cart.priceCoupons + cart.priceCouponsShipping) > 0 %}
+                <tr class="table-row-highlight-plain">
+                    <td colspan="2">
+                        {% trans %}_Coupons{% endtrans %}
+                    </td>
+                    <td class="text-right">
+                        - {{ (cart.priceCoupons + cart.priceCouponsShipping)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </td>
+                </tr>
+                {% endif %}
+                <tr class="table-row-totals-sm">
+                    <td colspan="2">
+                        {{ '_Total'|trans|upper }}
+                    </td>
+                    <td class="text-right">
+                        {{ cart.price|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

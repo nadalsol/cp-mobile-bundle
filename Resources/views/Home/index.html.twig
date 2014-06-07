@@ -1,0 +1,31 @@
+{% extends app.request.isXmlHttpRequest ? "ChicplaceMobileBundle::ajax_layout.html.twig" : "ChicplaceMobileBundle::layout.html.twig" %}
+
+{% if app.request.isXmlHttpRequest %}
+    {% block content_no_pins %}
+        {% include "ChicplaceMobileBundle:Product:blocks/bricks_products.html.twig" %}
+    {% endblock content_no_pins %}
+
+{% else %}
+    {% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+
+    {% block content_inner %}
+
+        <div class="container">
+
+            {# Bricks - Banners #}
+            {% include "ChicplaceMobileBundle:Banner:bricks_banners.html.twig" %}
+
+            {# Bricks - Products #}
+            {# include "ChicplaceMobileBundle:Product:blocks/bricks_infinite_products.html.twig" #}
+
+            {# Loader #}
+            {# include "ChicplaceMobileBundle:blocks:loader.html.twig" #}
+
+        </div>
+        
+    {% endblock content_inner %}
+
+
+    {% block btn_to_top %}{% endblock btn_to_top %}
+{% endif %}

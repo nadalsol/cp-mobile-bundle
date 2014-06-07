@@ -1,0 +1,21 @@
+{# Title (optional) #}
+{% if title %}
+    <div class="row">
+        <div class="col col-sm-12">
+            <h2>{{ title | trans }}</h2>
+        </div>
+    </div>
+{% endif %}
+
+{# Bricks #}
+<div id="bricks-data"
+     data-bricks-url="{{ bricks_url }}"
+     data-bricks-column-number="1"
+     data-bricks-column-gutter="5"
+     data-price-range-min="{{ price_range_min }}"
+     data-price-range-max="{{ price_range_max }}"
+     data-characteristics="{{ app.request.get('characteristics')|json_encode }}" >
+    <div id="bricks-content">
+        {% include "ChicplaceMobileBundle:Product:blocks/bricks_products.html.twig" %}
+    </div>
+</div>

@@ -1,0 +1,98 @@
+# *** Global layout ***
+
+#home page metas
+_root_title: Chicplace
+_root_meta_description: Nous suivons la piste de toutes les boutiques uniques de Barcelone, Paris, Madrid, Milan, Berlin... Chicplace vous rapproche des meilleures boutiques en Europe, en rassemblant tous les produits dans une seule vitrine.
+_root_meta_keywords: ChicPlace boutiques Barcelone, Paris, Madrid, Milan
+
+#layout global
+lang_code_complete: fr_FR
+_Login: Identifiez-vous
+_Logout: Déconnecter
+_tagline_title: Les boutiques européennes les plus chics en un clic !
+_Back: Retour
+_Loading: Chargement
+_Top: Top
+_Add_to_cart: J’ajoute au panier
+
+#navbar header
+_Categories: Catégories
+_Search: Rechercher
+_Cart: Panier
+
+#dropdown menu header
+_About_Chicplace: Au sujet de ChicPlace
+_Terms_of_use: Mentions legales
+_Privacy_policy: Confidentialité
+_Contact_us: Contactez-nous
+_Secure_payment: Paiement sécurisé
+_Delivery: Livraison
+_Switch_to_classic_view: Affichage classique
+
+
+# *** Flash messages ***
+
+_We_use_cookies_to_help_browsing_experience: Ce site utilise des <a href="%cookies%">cookies</a> afin d'optimiser votre expérience de navigation. En naviguant sur ce site, vous en acceptez l'usage.
+_You_are_using_an_outdated_browser: Vous utilisez un <strong>dépassée</strong> navigateur. S'il vous plaît <a href="http://browsehappy.com/">mise à niveau de votre navigateur</a> ou <a href="http://www.google.com/chromeframe/?redirect=true">activer Google Chrome Frame</a> pour améliorer votre expérience.
+
+
+# *** Product ***
+
+_Other_items: Autres produits
+_Other_items_by: Autre produits by par
+_Select_a_color: Sélectionnez une couleur...
+_Selected_color: Couleur sélectionnée
+
+
+# *** Shop ***
+
+_Shops: Boutiques
+_More_products: Plus de produits
+
+
+# *** Cart ***
+
+_Shipping_data: Données d’expédition
+_Thank_you_very_much: Merci beaucoup!
+_Name: Nom
+_Last_name: Prénom
+_Quantity: Quantité
+_Quantity_abbr: Qté.
+_Price: Prix
+_Checkout: J’achete
+_Continue_shopping: Poursuivre mon shopping
+_Have_discount: Avez-vous un bon de réduction?
+_Ok: Ok
+_Total_products: Total produits
+_Total_shipping: Total frais de port
+_Total: Total
+_Remove: J’enleve
+_Shipment_data: Adresse de livraison
+_Summary_shopping_cart: Récapitulatif de la commande
+_Set_my_current_location: Définir ma position actuelle
+_Country: Pays
+_State: Etat
+_Province: Département
+_Postal_code: Code postal
+_Comments: Commentaires
+_City: Ville
+_Phone: Téléphone
+_Check_newsletter_personal_data: Cochez la case si vous ne souhaitez pas recevoir toute l’actualité ChicPlace et nos offres spéciales. Nous n’utiliserons pas vos données personnelles pour des actions Marketing.
+_Check_terms_of_use: J'ai lu et j'accepte les <a href="%term_use%" target="_blank">conditions d'utilisation et de confidentialité</a> et les présentes <a href="%cgv%" target="_blank">Conditions Générales de Vente</a>.
+_Continue: Continuer
+_Card_number: Numéro de carte
+_Expiry_date: Date d'expiration
+_Security_code: Code de sécurité
+_Your_cart: Votre panier
+_Your_data: Vos informations
+_Thank_you_very_much: Merci beaucoup!
+_Back_to_Home: Retour à la page d'accueil
+_Address: Adresse
+_Email: Email
+
+
+# *** Static pages ***
+
+#contact us
+_Schedule: Calendrier
+_Section: Section

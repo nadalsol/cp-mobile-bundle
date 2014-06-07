@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col col-sm-12">
+        <div class="brick brick-shop">
+            <div class="brick-info">
+                <h1 class="brick-name">
+                    {{ shop.name }}
+                </h1>
+                <span class="brick-by">
+                    {{ shop.shopAddress.cityName }}
+                </span>
+            </div>
+            <div class="wrap-media">
+                <img class="img-responsive" src="{{ shop.principalImage.id|resize({'width':300, 'height':300, 'type':5, 'slug': shop['slug_'~app.request.locale] }) }}" alt="{{ shop.name }}">
+            </div>
+        </div>
+    </div>
+</div>

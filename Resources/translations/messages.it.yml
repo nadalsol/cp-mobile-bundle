@@ -1,0 +1,98 @@
+# *** Global layout ***
+
+#home page metas
+_root_title: Chicplace
+_root_meta_description: Tutte quelle boutique dal carattere unico a tua disposizione. Chicplace mette a tua disposizione il meglio delle migliori boutique d'Europa: Barcellona, Madrid, Parigi, Milano, Berlino... il tutto in un'unica vetrina.
+_root_meta_keywords: ChicPlace boutique Madrid, Parigi, Milano, Berlino
+
+#layout global
+lang_code_complete: it_IT
+_Login: Login
+_Logout: Disconnettersi
+_tagline_title: The most unique shops in Europe
+_Back: Fa
+_Loading: Caricamento
+_Top: Inizio
+_Add_to_cart: Aggiungi al carrello
+
+#navbar header
+_Categories: Categorie
+_Search: Cerca
+_Cart: Carrello
+
+#dropdown menu header
+_About_Chicplace: About ChicPlace
+_Terms_of_use: Termini e condizioni
+_Privacy_policy: Politica di riservatezza
+_Contact_us: Contattaci
+_Secure_payment: Pagamento sicuro
+_Delivery: Consegna
+_Switch_to_classic_view: Visualizzazione classica
+
+
+# *** Flash messages ***
+
+_We_use_cookies_to_help_browsing_experience: Al fine di ottimizzare la vostra navigazione, questo sito utilizza dei <a href="%cookies%">cookies</a>. Navigando su questo sito, ne accettate l'uso.
+_You_are_using_an_outdated_browser: Si sta utilizzando un <strong>obsoleto</strong> del browser. Si prega <a href="http://browsehappy.com/">aggiornare il browser</a> o <a href="http://www.google.com/chromeframe/?redirect=true">attivare Google Chrome Frame</a> per migliorare la vostra esperienza.
+
+
+# *** Product ***
+
+_Other_items: Altri articulo
+_Other_items_by: Altri prodotti by
+_Select_a_color: Selezionare un colore...
+_Selected_color: Colore selezionato
+
+
+# *** Shop ***
+
+_Shops: Boutique
+_More_products: Più prodotti
+
+
+# *** Cart ***
+
+_Shipping_data: Dati di spedizione
+_Thank_you_very_much: Grazie mille!
+_Name: Nome
+_Last_name: Cognome
+_Quantity: Quantità
+_Quantity_abbr: Quant.
+_Price: Presso
+_Checkout: Compra
+_Continue_shopping: Continuare il mio shopping
+_Have_discount: Hai un buono?
+_Ok: Ok
+_Total_products: Totale prodotti
+_Total_shipping: Totale spedizone
+_Total: Totale
+_Remove: Rimuovere
+_Shipment_data: Indirizzo di consegna
+_Summary_shopping_cart: Sintesi del carrello
+_Set_my_current_location: Imposta mia posizione attuale
+_Country: Paese
+_State: Stato
+_Province: Provincia
+_Postal_code: CAP
+_Comments: Commenti
+_City: Città
+_Phone: Telefono
+_Check_newsletter_personal_data: Selezionare la casella se non desidera ricevere la nostra newsletter. Non usare i tuoi dati personali per il marketing.
+_Check_terms_of_use: Ho letto e accettato le <a href="%term_use%" target="_blank">Condizioni d'uso</a> e <a href="%privacy%" target="_blank">Riservatezza</a>.
+_Continue: Continuo
+_Card_number: Numero di carta
+_Expiry_date: Data di scadenza
+_Security_code: CVV
+_Your_cart: Il tuo carrello
+_Your_data: I tuoi dati
+_Thank_you_very_much: Grazie mille!
+_Back_to_Home: Torna alla home
+_Address: Indirizzo
+_Email: Email
+
+
+# *** Static pages ***
+
+#contact us
+_Schedule: Orario
+_Section: Sezione

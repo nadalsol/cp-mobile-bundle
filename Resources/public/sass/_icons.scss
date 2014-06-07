@@ -1,0 +1,118 @@
+//
+// Icons
+// --------------------------------------------------
+
+// Vector icon fonts generated with Fontastic
+// http://fontastic.me/
+
+
+@font-face {
+  font-family: "chicplace-icons";
+  src: url("../fonts/chicplace-icons.eot");
+  src: url("../fonts/chicplace-icons.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/chicplace-icons.woff") format("woff"),
+       url("../fonts/chicplace-icons.ttf") format("truetype"),
+       url("../fonts/chicplace-icons.svg#chicplace-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+// Base class
+// --------------------
+
+.icon:before {
+  font-family: "chicplace-icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+// Sub-classes
+// --------------------
+
+// Icons
+.icon-arrow-up:before {
+  content: "a";
+}
+.icon-chevron-down:before {
+  content: "b";
+}
+.icon-chevron-left:before {
+  content: "c";
+}
+.icon-chevron-right:before {
+  content: "d";
+}
+.icon-chevron-up:before {
+  content: "e";
+}
+.icon-geolocation:before {
+  content: "f";
+}
+.icon-logo:before {
+  content: "g";
+}
+.icon-pencil:before {
+  content: "h";
+}
+.icon-remove:before {
+  content: "i";
+}
+.icon-rule:before {
+  content: "j";
+}
+.icon-scissors:before {
+  content: "k";
+}
+.icon-search:before {
+  content: "l";
+}
+.icon-search-circle:before {
+  content: "m";
+}
+.icon-shopping-bag:before {
+  content: "n";
+}
+.icon-th:before {
+  content: "o";
+}
+.icon-time:before {
+  content: "p";
+}
+
+// Sizes
+.icon-lg {
+  font-size: $icon-size-lg;
+}
+.icon-md {
+  font-size: $icon-size-md;
+}
+.icon-sm {
+  font-size: $icon-size-sm;
+}
+.icon-xs {
+  font-size: $icon-size-xs;
+}
+
+// Colors
+.icon-default {
+  color: $text-color;
+}
+.icon-primary {
+  color: $brand-primary;
+}
+.icon-active {
+  color: $brand-active;
+}
+
+// States
+.active .icon {
+  @extend .icon-active;
+}

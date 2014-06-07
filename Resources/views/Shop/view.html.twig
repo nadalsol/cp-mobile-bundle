@@ -1,0 +1,27 @@
+{% extends app.request.isXmlHttpRequest ? "ChicplaceMobileBundle::ajax_layout.html.twig" : "ChicplaceMobileBundle::layout.html.twig" %}
+
+{% if app.request.isXmlHttpRequest %}
+    {% block content_no_pins %}
+        {% include "ChicplaceMobileBundle:Product:blocks/bricks_products.html.twig" with { products: shop_products } %}
+    {% endblock content_no_pins %}
+{% else %}
+    {% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+    {% block content_inner %}
+
+        {# .Shop #}
+        <div class="shop">
+            <div class="container">
+                {# ..Brick #}
+                {% include "ChicplaceMobileBundle:Shop/blocks:shop_brick.html.twig" %}
+                {# ..Description #}
+                {% include "ChicplaceMobileBundle:Shop/blocks:shop_description.html.twig" %}
+                {# ..Bricks - Products #}
+                {% include "ChicplaceMobileBundle:Product:blocks/bricks_infinite_products.html.twig" with { title: '_Items_by'|trans~" "~shop.name, products: shop_products } %}
+                {# ..Loader #}
+                {% include "ChicplaceMobileBundle:blocks:loader.html.twig" %}
+            </div>
+        </div>
+
+    {% endblock content_inner %}
+{% endif %}

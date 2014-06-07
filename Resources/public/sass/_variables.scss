@@ -1,0 +1,310 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+// Global values
+// --------------------------------------------------
+
+// Grays
+// -------------------------
+
+$black:                 #000 !default;
+$gray-darkest:          #222 !default;
+$gray-darker:           #686868 !default;
+$gray-dark:             #5b5b5f !default;
+$gray:                  #999 !default;
+$gray-light:            #b6b6b6 !default;
+$gray-lighter:          #c6c7c9 !default;
+$gray-lightest:         #dcdde0 !default;
+$almost-white:          #f5f5f6 !default;
+$white:                 #fff !default;
+
+
+// Brand colors
+// -------------------------
+
+$brand-primary:         #57bce8 !default;
+$brand-success:         #5cb85c !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #e76f48 !default;
+$brand-info:            #5bc0de !default;
+$brand-active:          #eea08b !default;
+
+
+// Scaffolding
+// -------------------------
+
+$body-bg:               $white !default;
+$text-color:            $gray-dark !default;
+
+// Vertical space between components.
+// Use $line-height-computed as default value.
+$vertical-space-lg:     30px !default;
+$vertical-space-md:     25px !default;
+$vertical-space-sm:     15px !default;
+
+
+// Links
+// -------------------------
+
+$link-color:            $brand-primary !default;
+$link-hover-color:      darken($link-color, 15%) !default;
+
+
+// Typography
+// -------------------------
+
+$font-family-sans-serif:         "bariol_regularregular", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif-bold:    "bariol_boldbold", "Arial Black", "Arial Bold", Gadget, sans-serif !default;
+$font-family-fantasy:            "blanchcondensed", Arial, sans-serif !default;
+$font-family-calligraphy:        "lavanderia_regularregular", Arial, sans-serif !default;
+$font-family-caps:               "ostrich_sansmedium", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-caps-bold:          "ostrich_sansblack", "Arial Black", "Arial Bold", Gadget, sans-serif !default;
+$font-family-base:               $font-family-sans-serif !default;
+
+$font-size-base:                 17px !default;
+
+$font-size-xl:                   ceil($font-size-base * 1.47) !default;  // ~25px
+$font-size-lg:                   ceil($font-size-base * 1.23) !default;  // ~21px
+$font-size-md:                   ceil($font-size-base * 1.11) !default;  // ~19px
+$font-size-sm:                   ceil($font-size-base * 0.88) !default;  // ~15px
+$font-size-xs:                   ceil($font-size-base * 0.76) !default;  // ~13px
+
+$font-size-h1:                   ceil($font-size-base * 2.05) !default;  // ~35px
+$font-size-h2:                   ceil($font-size-base * 1.47) !default;  // ~25px
+$font-size-h3:                   ceil($font-size-base * 0.88) !default;  // ~15px
+$font-size-h4:                   ceil($font-size-base * 0.94) !default;  // ~16px
+$font-size-h5:                   ceil($font-size-base * 0.82) !default;  // ~14px
+$font-size-h6:                   ceil($font-size-base * 0.70) !default;  // ~12px
+
+$font-size-logo:                 ceil($font-size-base * 3.11) !default;  // ~53px
+$font-size-shopping-cart:        ceil($font-size-base * 0.82) !default;  // ~14px
+
+$line-height-base:               1.176470588235294 !default; // 20/17
+$line-height-computed:           ceil($font-size-base * $line-height-base) !default; // ~20px
+
+$headings-font-family:           $font-family-base !default;
+$headings-font-weight:           400 !default; // ~normal
+$headings-line-height:           1.1 !default;
+$headings-color:                 $gray-dark !default;
+
+
+// Icons
+// -------------------------
+
+$icon-size-lg:               ceil($font-size-base * 2.82) !default;  // ~48px
+$icon-size-md:               ceil($font-size-base * 2.00) !default;  // ~34px
+$icon-size-sm:               ceil($font-size-base * 1.47) !default;  // ~25px
+$icon-size-xs:               ceil($font-size-base * 0.94) !default;  // ~16px
+
+
+// Components
+// -------------------------
+// Based on 17px font-size and 1.764 line-height (~20px to start)
+
+$padding-base-vertical:      6px !default;
+$padding-base-horizontal:    12px !default;
+
+$padding-lg-vertical:        8px !default;
+$padding-lg-horizontal:      16px !default;
+
+$padding-sm-vertical:        4px !default;
+$padding-sm-horizontal:      8px !default;
+
+$line-height-lg:             1.33 !default;
+$line-height-sm:             1.5 !default;
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+// Media queries breakpoints
+// --------------------------------------------------
+
+// Small screen / tablet
+$screen-sm-min:              779px !default;
+
+// Medium screen / desktop
+//$screen-md-min:            0px !default;
+
+// Large screen / wide desktop
+$screen-lg-min:              780px !default;
+
+
+// Modular media queries
+// --------------------------------------------------
+
+$mq-media:                   screen !default;
+$mq-feature-min-width:       min-width !default;
+$mq-feature-max-width:       max-width !default;
+
+
+// Grid system
+// --------------------------------------------------
+
+$grid-max-columns:           12 !default;
+$grid-col-padding:           0 0% !default;
+$grid-gutter-px:             0 !default;
+$grid-gutter-pc:             2.92397660818713% !default;
+
+
+// Container sizes
+// --------------------------------------------------
+
+// Small screen / tablet
+$container-sm:               100% !default;
+
+// Large screen / wide desktop
+$container-lg:               1026px !default;
+
+
+// Form states and alerts
+// -------------------------
+
+$state-success-text:         #468847 !default;
+$state-success-bg:           #dff0d8 !default;
+$state-success-border:       darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+$state-info-text:            #3a87ad !default;
+$state-info-bg:              #d9edf7 !default;
+$state-info-border:          darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:         #c09853 !default;
+$state-warning-bg:           #fcf8e3 !default;
+$state-warning-border:       darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+$state-danger-text:          #b94a48 !default;
+$state-danger-bg:            #f2dede !default;
+$state-danger-border:        darken(adjust-hue($state-danger-bg, -10), 5%) !default;
+
+
+// Header
+// -------------------------
+
+$header-height:              50px !default;
+
+
+// Navbar
+// -------------------------
+
+// Header
+$navbar-main-header-height:  $header-height !default;
+$navbar-main-header-bg:      #f3f4f4 !default;
+$navbar-main-header-space:   13px !default;
+
+
+// Tables
+// -------------------------
+
+$table-cell-padding:         5px 10px !default;
+
+$table-bg:                   transparent !default; // overall background-color
+
+$table-dark-th-bg:           #e4e5e6 !default;
+$table-dark-td-bg:           $almost-white !default;
+
+$table-light-th-bg:          $white !default;
+$table-light-td-bg:          $white !default;
+
+$table-border-color:         $gray-lighter !default; // table and cell border
+
+
+// Buttons
+// -------------------------
+
+$btn-font-weight:            normal !default;
+
+$btn-default-color:          #fff !default;
+$btn-default-bg:             #b6b6b6 !default;
+$btn-default-border:         $btn-default-bg !default;
+$btn-default-hover-color:    $btn-default-color !default;
+$btn-default-hover-bg:       lighten($btn-default-bg, 10) !default;
+$btn-default-hover-border:   $btn-default-bg !default;
+
+$btn-primary-color:          #fff !default;
+$btn-primary-bg:             $brand-primary !default;
+$btn-primary-border:         $btn-primary-bg !default;
+$btn-primary-hover-color:    $btn-primary-color !default;
+$btn-primary-hover-bg:       lighten($btn-primary-bg, 10) !default;
+$btn-primary-hover-border:   $btn-primary-bg !default;
+
+$btn-info-color:             #fff !default;
+$btn-info-bg:                $brand-danger !default;
+$btn-info-border:            $btn-info-bg !default;
+$btn-info-hover-color:       $btn-info-color !default;
+$btn-info-hover-bg:          lighten($btn-info-bg, 10) !default;
+$btn-info-hover-border:      $btn-info-bg !default;
+
+
+// Forms
+// -------------------------
+
+$input-bg:                   #fff !default;
+$input-bg-disabled:          $gray !default;
+$input-bg-into-well:         $gray !default;
+
+$input-color:                $text-color !default;
+$input-border:               $gray-lighter !default;
+$input-border-focus:         $brand-primary !default;
+
+$input-color-placeholder:    $gray !default;
+
+$input-height-base:          ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+$input-height-lg:            (floor($font-size-lg * $line-height-lg) + ($padding-lg-vertical * 2) + 2) !default;
+$input-height-sm:            (floor($font-size-sm * $line-height-sm) + ($padding-sm-vertical * 2) + 2) !default;
+
+$legend-color:               $gray-darkest !default;
+$legend-border-color:        $gray-dark !default;
+
+
+// Alerts
+// -------------------------
+$alert-padding:              10px !default;
+$alert-link-font-weight:     $font-family-sans-serif-bold !default;
+
+$alert-success-bg:           $state-success-bg !default;
+$alert-success-text:         $state-success-text !default;
+$alert-success-border:       $state-success-border !default;
+
+$alert-info-bg:              $state-info-bg !default;
+$alert-info-text:            $state-info-text !default;
+$alert-info-border:          $state-info-border !default;
+
+$alert-warning-bg:           $state-warning-bg !default;
+$alert-warning-text:         $state-warning-text !default;
+$alert-warning-border:       $state-warning-border !default;
+
+$alert-danger-bg:            $state-danger-bg !default;
+$alert-danger-text:          $state-danger-text !default;
+$alert-danger-border:        $state-danger-border !default;
+
+
+// Bricks
+// ------------------------
+
+$brick-default-height:       255px !default;
+$brick-default-img-height:   285px !default;
+
+$brick-banner-height:        352px !default;
+$brick-banner-img-height:    $brick-banner-height !default;
+
+
+// Carousel
+// ------------------------
+
+$carousel-control-color:                    $white !default;
+$carousel-control-width:                    15% !default;
+$carousel-control-opacity:                  .3 !default;
+$carousel-control-font-size:                20px !default;
+
+$carousel-indicator-bg:                     $white !default;
+$carousel-indicator-border-color:           $gray-lightest !default;
+$carousel-indicator-active-bg:              $brand-primary !default;
+$carousel-indicator-active-border-color:    $carousel-indicator-active-bg !default;
+
+
+// Close
+// ------------------------
+$close-color:                $black !default;
+$close-text-shadow:          0 1px 0 $white !default;

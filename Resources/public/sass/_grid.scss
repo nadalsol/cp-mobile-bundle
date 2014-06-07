@@ -1,0 +1,171 @@
+//
+// Grid system
+// --------------------------------------------------
+
+//
+// Based on Gridpak Beta SCSS 
+//
+// Generator - http://gridpak.com/
+// Created by @erskinedesign
+//
+
+
+// Set the container width, and override it in media queries if needed
+.container {
+    @include container-fixed;
+}
+
+// Row clear of floats
+.row {
+    @include clearfix;
+}
+
+// Reusable column setup
+.col {
+    @include col;
+}
+ 
+
+// 1. 12 Column Grid 0px - 779px
+// -----------------------------------------------------------------------------
+
+// Col 1:    7.41666666667%
+// Col 2:    15.8333333333%
+// Col 3:    24.25%
+// Col 4:    32.6666666667%
+// Col 5:    41.0833333333%
+// Col 6:    49.5%
+// Col 7:    57.9166666667%
+// Col 8:    66.3333333333%
+// Col 9:    74.75%
+// Col 10:    83.1666666667%
+// Col 11:    91.5833333333%
+// Col 12:    100%
+
+// -----------------------------------------------------------------------------
+
+// No media query since this is the default
+
+.container {
+    width: $container-sm;
+    padding-left: $grid-gutter-pc;
+    padding-right: $grid-gutter-pc;
+}
+
+.col {
+    margin-left: $grid-gutter-pc;
+    padding: $grid-col-padding;
+}
+
+.row .col:first-child {
+    @include col-span-first;
+}
+
+.col-sm-1 {
+    @include col-span(1, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-2 {
+    @include col-span(2, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-3 {
+    @include col-span(3, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-4 {
+    @include col-span(4, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-5 {
+    @include col-span(5, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-6 {
+    @include col-span(6, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-7 {
+    @include col-span(7, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-8 {
+    @include col-span(8, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-9 {
+    @include col-span(9, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-10 {
+    @include col-span(10, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-11 {
+    @include col-span(11, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+}
+.col-sm-12 {
+    @include col-span-first;
+    width: 100%;
+}
+
+
+// 2. 12 Column Grid 780px - Infinity
+// -----------------------------------------------------------------------------
+
+// Col 1:    7.41666666667%
+// Col 2:    15.8333333333%
+// Col 3:    24.25%
+// Col 4:    32.6666666667%
+// Col 5:    41.0833333333%
+// Col 6:    49.5%
+// Col 7:    57.9166666667%
+// Col 8:    66.3333333333%
+// Col 9:    74.75%
+// Col 10:    83.1666666667%
+// Col 11:    91.5833333333%
+// Col 12:    100%
+
+// -----------------------------------------------------------------------------    
+
+@include modular-mq(lg) {
+
+    .container {
+        width: $container-lg;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .col {
+        margin-left: $grid-gutter-pc; // ~30px
+        padding: $grid-col-padding;
+    }
+
+    .col-lg-1 {
+        @include col-span(1, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-2 {
+        @include col-span(2, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-3 {
+        @include col-span(3, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-4 {
+        @include col-span(4, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-5 {
+        @include col-span(5, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-6 {
+        @include col-span(6, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-7 {
+        @include col-span(7, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-8 {
+        @include col-span(8, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-9 {
+        @include col-span(9, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-10 {
+        @include col-span(10, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-11 {
+        @include col-span(11, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns);
+    }
+    .col-lg-12 {
+        @include col-span-first;
+        width: 100%;
+    }
+}

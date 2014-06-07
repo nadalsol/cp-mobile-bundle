@@ -1,0 +1,6 @@
+parameters:
+    chicplace.mobile.controller.search.class: Chicplace\MobileBundle\Controller\SearchController
+
+services:
+    chicplace.mobile.controller.search:
+        class: %chicplace.mobile.controller.search.class%

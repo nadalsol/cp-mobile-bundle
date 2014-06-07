@@ -1,0 +1,36 @@
+<div class="row dropdown-menu-about">
+    <div class="container">
+        <div class="col col-sm-6">
+            <ul>
+                <li>
+                    <a href="{{ url('aboutus') }}">{% trans %}_About_Chicplace{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ url('termsofuse') }}">{% trans %}_Terms_of_use{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ url('privacypolicy') }}">{% trans %}_Privacy_policy{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="#">{% trans %}_Switch_to_classic_view{% endtrans %}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col col-sm-6">
+            <ul>
+                <li>
+                    <a href="{{ url('contactus') }}">{% trans %}_Contact_us{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ url('securepayment') }}">{% trans %}_Secure_payment{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ url('delivery') }}">{% trans %}_Delivery{% endtrans %}</a>
+                </li>
+                <li class="dropdown-menu-about-lang">
+                    {% render (url('language_list', {'_locale' : app.request.locale, 'master_route' : app.request.get('_route'), 'master_params' : app.request.get('_route_params')})) %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

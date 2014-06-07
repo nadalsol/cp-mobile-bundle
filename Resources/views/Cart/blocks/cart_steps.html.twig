@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col col-sm-12">
+        <div class="cart-steps">
+            <ol>
+                <li{% if step >= 1 %} class="active"{% endif %}>
+                    1
+                </li>
+                <li{% if step >= 2 %} class="active"{% endif %}>
+                    2
+                </li>
+                <li{% if step >= 3 %} class="active"{% endif %}>
+                    3
+                </li>
+                <li{% if step == 4 %} class="active"{% endif %}>
+                    4
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

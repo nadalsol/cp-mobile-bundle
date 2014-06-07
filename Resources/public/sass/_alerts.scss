@@ -1,0 +1,74 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base class
+// --------------------
+
+.alert {
+  padding: $alert-padding;
+  margin-bottom: $line-height-computed;
+  border: 1px solid transparent;
+
+  // Provide class for links that match alerts
+  a {
+    font-family: $alert-link-font-weight;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+  > p + p {
+    margin-top: 5px;
+  }
+}
+
+
+// Sub-classes
+// --------------------
+
+// Dismissable alerts
+//
+// Expand the right padding and account for the close button's positioning.
+.alert-dismissable {
+  padding-right: ($alert-padding + 20);
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+  }
+}
+
+// Generate contextual modifier classes for colorizing the alert.
+.alert-success {
+  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+}
+.alert-info {
+  @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+}
+.alert-warning {
+  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+.alert-danger {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+// Fixed alerts
+//
+// Position alerts in top of the viewport, overlaying any other element.
+.alert-fixed-t {
+  @include positioner(fixed, top, 0, left, 0, 2000);
+  width: 100%;
+  margin-bottom: 0;
+}
+// Position alerts in bottom of the viewport, overlaying any other element.
+.alert-fixed-b {
+  @include positioner(fixed, bottom, 0, left, 0, 2000);
+  width: 100%;
+  margin-bottom: 0;
+}

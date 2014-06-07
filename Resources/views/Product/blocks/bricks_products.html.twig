@@ -1,0 +1,11 @@
+{% for product in products %}
+    {% set product_name = product['full_name_'~app.request.locale]|default(product['full_name']) %}
+    {% set product_city = product['cityName_'~app.request.locale]|default(product['cityName']) %}
+    {% if (loop.index0 % 2) == 0 %}
+        <div class="row">
+    {% endif %}
+    {% include "ChicplaceMobileBundle:Product:blocks/brick_product.html.twig" %}
+    {% if (loop.index0 % 2) == 1 and (loop.index0 > 0) %}
+        </div>
+    {% endif %}
+{% endfor %}

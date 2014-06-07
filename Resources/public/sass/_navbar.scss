@@ -1,0 +1,59 @@
+//
+// Navbars
+// --------------------------------------------------
+
+
+// Base class
+// --------------------
+
+//.navbar {}
+
+
+// Sub-classes
+// --------------------
+
+.navbar-header {
+  @include positioner(fixed, top, 0, left, 0, 20);
+  width: 100%;
+  height: $navbar-main-header-height;
+  background-color: $navbar-main-header-bg;
+  @include box-shadow(0 5px 10px rgba(0,0,0,.15));
+  @include clearfix;
+  overflow: hidden; // Prevents logo overflow
+}
+
+
+// Inner classes
+// --------------------
+
+.navbar-header-logo {
+  float: left;
+  display: block;
+  min-width: $font-size-logo; // Same as font size, to prevent bg reflow
+  background-color: $white;
+  margin-top: -1px;
+  .icon-logo {
+    font-size: $font-size-logo;
+  }
+}
+
+.navbar-header-links {
+  float: right;
+  margin-right: -($navbar-main-header-space);
+  @include list-inline(0, 0);
+  a {
+    display: block;
+    position: relative;
+    padding: $navbar-main-header-space; // Ensures proper link size for touch-screen mobile devices
+  }
+  b {
+    display: block;
+    padding-top: 2px;
+    @include positioner($v-value: 18px, $h-value: 15px);
+    @include size(20px, 20px);
+    @include font-family-sans-serif;
+    font-size: $font-size-shopping-cart;
+    color: $white;
+    text-align: center;
+  }
+}

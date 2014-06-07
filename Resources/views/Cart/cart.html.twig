@@ -1,0 +1,27 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+
+{% block content_inner %}
+
+    {# .Cart - step 1 #}
+    <div class="cart">
+        <form class="container" method="post">
+
+            {# ..Steps #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_steps.html.twig" with { step: 1 } %}
+
+            {# ..Checkout #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_checkout.html.twig" %}
+
+            {# ..Buttons #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_payment_methods_btn.html.twig" %}
+
+            {# ..Payment methods #}
+            {% include "ChicplaceMobileBundle:Cart:blocks/cart_payment_methods.html.twig" %}
+
+        </form>
+    </div>
+
+{% endblock content_inner %}

@@ -1,0 +1,77 @@
+//
+// Wrap media
+// --------------------------------------------------
+
+//
+// A wrapper to provide absolute positioning
+// of inner elements.
+//
+
+
+// Base class
+// --------------------
+
+// Use it to wrap media content (usually <img>).
+.wrap-media {
+  display: block; // Needed for inline elements
+  // If img is smaller than it's container, better center it
+  .img-responsive {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+// Sub-classes
+// --------------------
+
+// Apply "wrap-media-overlap" class to a wrapper (usually <a> or <div>), to overlap and position
+// nested elements (usually buttons or icons) over media content (usually <img>).
+// Example:
+// <a class="wrap-media wrap-media-overlap" href="#">
+//   <span class="btn">I'm a button</span>
+//   <img src="..." alt=" ">
+// </a>
+.wrap-media-overlap {
+  position: relative;
+  overflow: hidden;
+  // Overlapped elements
+  .btn-tag {
+    display: block;
+    position: absolute;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $btn-primary-hover-color;
+      background-color: $btn-primary-bg;
+      border-color: $btn-primary-border;
+      @include box-shadow(none);
+    }
+  }
+  .btn-tag-l { left: 0; }
+  .btn-tag-r { right: 0; }
+  .btn-tag-t { top: 0; }
+  .btn-tag-b { bottom: 0; }
+  /*
+  [class^="icon-offer-"],
+  [class*=" icon-offer-"] {
+    @include positioner;
+  }
+  > .btn-primary {
+    @include positioner;
+    @include box-shadow(0 0 35px rgba(0,0,0,.4));
+  }
+  > .btn-info {
+    @include positioner(absolute, top, 50%, left, 50%);
+    @include opacity(0);
+  }
+  // Overlapped elements (hover)
+  &:hover {
+    > .btn-info {
+      @include opacity(100);
+      @include transition(opacity .3s linear);
+    }
+  }
+  */
+}

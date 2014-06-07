@@ -1,0 +1,74 @@
+{% extends app.request.isXmlHttpRequest ? "ChicplaceMobileBundle::ajax_layout.html.twig" : "ChicplaceMobileBundle::layout.html.twig" %}
+
+{% if app.request.isXmlHttpRequest %}
+    {% block content_no_pins %}
+        {% include "ChicplaceMobileBundle:Product:blocks/bricks_products.html.twig" %}
+    {% endblock content_no_pins %}
+{% else %}
+    {% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+    {% block content_inner %}
+
+        <div class="container">
+
+            {# Category selector #}
+            <div class="row">
+                <div class="col col-sm-12">
+                    {% if (category is defined and category.parent is defined and category.parent.id) %}
+                        {% if category.parent.parent is defined %}
+                            {% set grandpa = category.parent.parent %}
+                        {% endif %}
+                        {% if grandpa is defined and grandpa.id %}
+                        <a href="{{ url('category', {'category_id':grandpa.id, 'slug' : grandpa.slug}) }}">{{ grandpa.name }}</a>
+                        {% endif %}
+                        &rsaquo; <a href="{{ url('category', {'category_id':category.parent.id, 'slug' : category.parent.slug}) }}">{{ category.parent.name }}</a>
+                    {% endif %}
+                    {% if category is defined %}
+                        <h1>{{ category.name }}</h1>
+                    {% else %}
+                        <h1>{% trans %}_Search_results{% endtrans %}</h1>
+                    {% endif %}
+                    <form action="#">
+                        {% if categories|length > 0 %}
+                            <div class="form-group">
+                                <select class="form-control" name="category-selector" id="category-selector">
+                                    {% for category_data in categories %}
+                                        {% set cat_slug = category_data['slug_' ~ app.request.locale]|default("cat") %}
+                                        {% set cat_name = category_data['name_' ~ app.request.locale]|default("name") %}
+                                        <option value="{{ url('category', {'category_id': category_data.id , 'slug': cat_slug}) }}"
+                                            {% if category.id == category_data.id %} selected="selected"{% endif %}>
+                                            {{ cat_name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        {% endif %}
+                        <div class="form-group">
+                            {% include "ChicplaceMobileBundle:Product/blocks:filter_price_range.html.twig" %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% if products|length > 0 %}
+                {# Bricks - Products #}
+                {% include "ChicplaceMobileBundle:Product:blocks/bricks_infinite_products.html.twig" %}
+
+                {% if products|length == 6 %}
+                    {# Loader #}
+                    {% include "ChicplaceMobileBundle:blocks:loader.html.twig" %}
+                {% endif %}
+            {% else %}
+                <h1>{% trans %}_Search_results{% endtrans %}</h1>
+                <p>{{ '_0_results_found_for'|trans({'%query%': query})|raw }}.</p>
+            {% endif %}
+            
+        </div>
+
+    {% endblock content_inner %}
+
+
+    {% block btn_to_top %}
+        {% include "ChicplaceMobileBundle:blocks:btn_to_top.html.twig" %}
+    {% endblock btn_to_top %}
+{% endif %}

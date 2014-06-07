@@ -1,0 +1,406 @@
+//
+// Mixins
+// --------------------------------------------------
+
+
+// Utilities
+// -------------------------
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// WebKit-style focus
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted #333;
+  // WebKit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Center-align a block level element
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Sizing shortcuts
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// Placeholder text
+@mixin placeholder($color: $input-color-placeholder) {
+  // Firefox 4-18
+  &:-moz-placeholder {
+    color: $color;
+  }
+  // Firefox 19+
+  &::-moz-placeholder {
+    color: $color;
+  }
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  // Safari and Chrome
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Toggling content
+@mixin text-hide() {
+  font: unquote("0/0") a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin show() {
+  display: block !important;
+}
+
+@mixin hidden() {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+
+// FONTS
+// --------------------------------------------------
+
+@mixin font-family-sans-serif() {
+  font-family: $font-family-sans-serif;
+}
+@mixin font-family-sans-serif-bold() {
+  font-family: $font-family-sans-serif-bold;
+  font-weight: 400; // Overrides default browser bold style, showing bold @font-face font instead
+}
+
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+// Border Radius
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+// Drop shadows
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow; // i-o-s <4.3 & Android <4.1
+          box-shadow: $shadow;
+}
+
+// Transitions
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+          transition: $transition;
+}
+
+// Box sizing
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select; // IE10+
+       -o-user-select: $select;
+          user-select: $select;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: unquote("alpha(opacity=#{$opacity-ie})");
+}
+
+// Responsive image
+//
+// Keep images from scaling beyond the width of their parents.
+
+@mixin img-responsive($display: block) {
+  display: $display;
+  width: 100%; // Part 1: Set a maximum relative to the parent
+  //max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+
+// GRADIENTS
+// --------------------------------------------------
+
+// Vertical gradient, from top to bottom
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Color stops are not available in IE9 and below.
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-gradient(linear, left $start-percent, left $end-percent, from($start-color), to($end-color)); // Safari- 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, $start-color, $start-percent, $end-color, $end-percent); // Safari- 5.1+, Chrome 10+
+  background-image:  -moz-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // FF 3.6+
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10
+  background-repeat: repeat-x;
+}
+
+
+// COMPONENT MIXINS
+// --------------------------------------------------
+
+// Alerts
+// -------------------------
+@mixin alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+  a {
+    color: darken($text-color, 10%);
+  }
+}
+
+// Button variants
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+@mixin button-variant($color, $background, $border, $hover-color, $hover-background, $hover-border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+  &:active,
+  &.active {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+      border-color: $border
+    }
+  }
+}
+
+// Button sizes
+// -------------------------
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+// Grid System
+// ------------
+
+// Centered container element
+@mixin container-fixed() {
+  margin-right: auto;
+  margin-left: auto;
+  @include clearfix;
+}
+
+@mixin col() {
+  border: 0 solid rgba(0,0,0,0);
+  float: left;
+  -webkit-background-clip: padding-box !important;
+     -moz-background-clip: padding-box !important;
+          background-clip: padding-box !important;
+}
+
+@mixin col-span($col-num, $grid-gutter-pc, $grid-gutter-px, $grid-col-padding, $grid-max-columns) {
+  $one-col: (100% - ($grid-gutter-pc * ($grid-max-columns - 1))) / $grid-max-columns;
+  width: ($one-col * $col-num) + ($grid-gutter-pc * ($col-num - 1));
+  border-left-width: $grid-gutter-px;
+  padding: $grid-col-padding;
+  margin-left: $grid-gutter-pc;
+}
+
+@mixin col-span-first() {
+  margin-left: 0;
+}
+
+
+// Form validation states
+//
+// Used in forms.scss to generate the form validation CSS for warnings, errors,
+// and successes.
+
+@mixin form-control-validation($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
+  // Color the label and help text
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox {
+    color: $text-color;
+  }
+  // Set the border and box shadow on specific inputs to match
+  .form-control {
+    border-color: $border-color;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+    &:focus {
+      border-color: darken($border-color, 10%);
+      $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($border-color, 20%);
+      @include box-shadow($shadow);
+    }
+  }
+}
+
+// Form control focus state
+//
+// Generate a customized focus state and for any input with the specified color,
+// which defaults to the `$input-focus-border` variable.
+//
+// We highly encourage you to not customize the default value, but instead use
+// this to tweak colors on an as-needed basis. This aesthetic change is based on
+// WebKit's default styles, but applicable to a wider range of browsers. Its
+// usability and accessibility should be taken into account with any change.
+//
+// Example usage: change the default blue border and shadow to white for better
+// contrast against a dark gray background.
+
+@mixin form-control-focus($color: $input-border-focus) {
+  $color-rgba: rgba(red($color), green($color), blue($color), .6);
+  &:focus {
+    border-color: $color;
+    outline: 0;
+    @include box-shadow(unquote("inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #{$color-rgba}"));
+  }
+}
+
+// Form control sizing
+//
+// Relative text size, padding, and border-radii changes for form controls. For
+// horizontal sizing, wrap controls in the predefined grid classes. `<select>`
+// element gets special love because it's special, and that's a fact!
+
+@mixin input-size($class, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height) {
+  .input-#{$class} {
+    height: $input-height;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+
+  select.input-#{$class} {
+    height: $input-height;
+    line-height: $input-height;
+  }
+
+  textarea.input-#{$class} {
+    height: auto;
+  }
+}
+
+
+// APP MIXINS
+// --------------------------------------------------
+
+// Application (project specific) Mixins
+// --------------------------------------------------
+
+// Reset default list styles
+@mixin list-reset() {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  > dt,
+  > dd {
+    margin-left: 0;
+  }
+}
+
+// Turns list items into inline-block
+@mixin list-inline($pad-left: 5px, $pad-right: 5px) {
+  @include list-reset;
+  > li,
+  > dt,
+  > dd {
+    display: inline-block;
+    padding-left: $pad-left;
+    padding-right: $pad-right;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+// Modular media queries
+// Source: http://www.impressivewebs.com/modular-css-media-queries-sass/
+//
+// It keeps media query styles near the styles they override.
+//
+@mixin modular-mq($breakpoint) {
+  @if $breakpoint == lg {
+    @media #{$mq-media} and ($mq-feature-min-width: $screen-lg-min) { @content; }
+  }
+  /*@else if $breakpoint == md {
+    @media #{$mq-media} and ($mq-feature: $screen-md-min) { @content; }
+  }*/
+  @else if $breakpoint == sm {
+    @media #{$mq-media} and ($mq-feature-max-width: $screen-sm-min) { @content; }
+  }
+}
+
+// Height cropper
+@mixin height-cropper($height) {
+  height: $height;
+  overflow: hidden;
+}
+
+// Positioner
+@mixin positioner($position: absolute, $v-property: top, $v-value: 0, $h-property: left, $h-value: 0, $zindex: 10) {
+  position: $position;
+  #{$v-property}: ($v-value);
+  #{$h-property}: ($h-value);
+  z-index: $zindex;
+}

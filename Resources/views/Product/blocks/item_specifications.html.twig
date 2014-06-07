@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col col-sm-12">
+        <ul class="item-specifications">
+            {% if product.materialsText %}
+            {# ...Materials #}
+            <li class="media">
+                <div class="pull-left">
+                    <span class="media-object icon icon-scissors icon-sm"></span>
+                </div>
+                <div class="media-body">
+                    {{ product.materialsText }}
+                </div>
+            </li>
+            {% endif %}
+            <li class="media">
+                <div class="pull-left">
+                    <span class="media-object icon icon-time icon-sm"></span>
+                </div>
+                <div class="media-body">
+                    {{ '_shipping_days'|trans({'%days%' : product.shippingDelay + 2}) }}
+                </div>
+            </li>
+            {% if product.dimensionText %}
+            <li class="media">
+                <div class="pull-left">
+                    <span class="media-object icon icon-rule icon-sm"></span>
+                </div>
+                <div class="media-body">
+                    {{ product.dimensionText }}
+                </div>
+            </li>
+            {% endif %}
+        </ul>
+        {# ...Customization #}
+        {% for attribute in product_attributes %}
+        {% if attribute.isColor %}
+        <div class="media">
+            <div class="pull-left">
+                <img class="media-object item-color" id="item-color" src="{{ asset('bundles/chicplacemobile/img/inv.gif') }}" width="34" height="34" alt="{% trans %}_Selected_color{% endtrans %}">
+            </div>
+            <div class="media-body">
+                <div class="form-group">
+                    <select name="attribute_{{ attribute.id }}" class="form-control attribute_select" id="item-color-selector">
+                        {% for attributeValue in product_attribute_values[attribute.id] %}
+                            {% if attributeValue.color is defined %}
+                            <option data-hex="{{ attributeValue.color }}" {% if item.id in attributeValue.itemId %} selected{% endif %} data-items="{{ attributeValue.itemId|json_encode() }}" name="custom-colors" id="custom-colors-{{ attributeValue.id }}" value="{{ attributeValue.itemId|json_encode() }}">{{ attributeValue.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="form-group">
+            <label for="attribute_{{ attribute.id }}">{{ attribute.name }}</label>
+            <select id="attribute_{{ attribute.id }}" name="attribute_{{ attribute.id }}" class="form-control attribute_select">
+                {% for attributeValue in product_attribute_values[attribute.id] %}
+                    <option {% if item.id in attributeValue.itemId %} selected{% endif %} data-items="{{ attributeValue.itemId|json_encode() }}" name="custom-colors" id="custom-colors-{{ attributeValue.id }}" value="{{ attributeValue.itemId|json_encode() }}">{{ attributeValue.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% if product.isCustomizable %}
+        {% for customizable in product.customizableFields %}
+            <div class="form-group">
+            {% set customizable_name = 'customizables[' ~ customizable.id ~ ']' %}
+            {% set customizable_value = cart_line.customizations[customizable.id] %}
+
+            <label for="{{ customizable_name }}">{{ customizable.name }}
+            {% if customizable.priceDifference %}
+                (+ {{ customizable.priceDifference|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }})
+            {% endif %}</label>
+            {% if customizable.type == 1 %}
+                <input class="form-control" id="customizable-field_{{ loop.index0 }}" type="text" name="{{ customizable_name }}"{%if customizable.required%} required="required"{% endif %} value="{{ customizable_value }}">
+            {% elseif customizable.type == 2 %}
+                <textarea{%if customizable.required%} required="required"{% endif %} class="form-control" id="customizable-field_{{ loop.index0 }}" type="text" name="{{ customizable_name }}">{{ customizable_value }}</textarea>
+            {% elseif customizable.type == 3 %}
+                <input id="customizable-field_{{ loop.index0 }}" class="form-control" type="file" name="{{ customizable_name }}"{%if customizable.required%} required="required"{% endif %}>
+            {% endif %}
+            </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>

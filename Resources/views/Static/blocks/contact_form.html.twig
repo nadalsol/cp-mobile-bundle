@@ -1,0 +1,48 @@
+{# Title #}
+<div class="row">
+    <div class="col col-sm-12">
+        <h2>{% trans %}_Contact_form{% endtrans %}</h2>
+    </div>
+</div>
+
+{# Contact form #}
+<div class="row">
+    <div class="col col-sm-12">
+        <form action="#">
+
+            <div class="form-group">
+                <select name="subject-heading" id="subject-heading" class="form-control" required>
+                    <option value="0" selected>{% trans %}_Subject_heading{% endtrans %}</option>
+                    <option value="1">{% trans %}_Customer_service{% endtrans %}</option>
+                    <option value="2">{% trans %}_Partners{% endtrans %}</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" name="email" id="email" placeholder="{% trans %}_Email{% endtrans %}" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="id-order" id="id-order" placeholder="{% trans %}_Order_ID{% endtrans %}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <textarea name="message" id="message" rows="5" placeholder="{% trans %}_Message{% endtrans %}" class="form-control"></textarea>
+            </div>
+
+            <div class="checkbox">
+                <label class="help-block">
+                    <input type="checkbox">
+                    {{ '_Check_terms_of_use' | trans({'%term_use%': url("termsofuse"), '%privacy%': url("privacypolicy"), '%cgv%': url("cgv")}) | raw  }}
+                </label>
+            </div>
+            
+            <p>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    {% trans %}_Send{% endtrans %}
+                </button>
+            </p>
+
+        </form>
+    </div>
+</div>

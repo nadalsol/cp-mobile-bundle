@@ -1,0 +1,38 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+{# Hands up!
+   This view uses translations from the 'WebBundle', to facilitate
+   the maintenance of texts.
+#}
+
+{% block content_inner %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <h1>{% trans %}_Secure_delivery{% endtrans %}</h1>
+                <p>{% trans %}_We_will_aim_to_dispatch_your_order{% endtrans %}.</p>
+                <p>{% trans %}_ChicPlace_will_always_inform_the_user{% endtrans %}.</p>
+                <p>{% trans %}_Delays_in_delivery_may_be_due_to{% endtrans %}:</p>
+                <ol>
+                    <li>{% trans %}_Personalisation_of_products{% endtrans %}</li>
+                    <li>{% trans %}_Specialised_products{% endtrans %}</li>
+                    <li>{% trans %}_Unforseen_circumstances{% endtrans %}</li>
+                    <li>{% trans %}_Delivery_area{% endtrans %}</li>
+                </ol>
+                <p>{% trans %}_If_for_any_reason_we_are_unable_to_deliver{% endtrans %}.</p>
+                <p>{% trans %}_By_accepting_this_delivery_service{% endtrans %}.</p>
+                <p>{% trans %}_For_the_purposes_of_these_Terms{% endtrans %}.</p>
+
+                <h2>{% trans %}_Unable_to_deliver{% endtrans %}</h2>
+                <p>{% trans %}_If_we_are_unable_to_complete_the_delivery_of_your_order{% endtrans %}.</p>
+                <p>{% trans %}_Please_take_into_account_that_taking_your_order{% endtrans %}.</p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content_inner %}

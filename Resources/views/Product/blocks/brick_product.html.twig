@@ -1,0 +1,63 @@
+<div class="col col-sm-6">
+    <div class="brick brick-default">
+        <a class="wrap-media wrap-media-overlap" href="{{ url('product_view', {'product_id' : product.id}) }}">
+            <span class="btn btn-tag btn-tag-b btn-tag-r">
+                {% if product.presetPrice is defined %}
+                    {% set price = product.presetPrice %}
+                {% else %}
+                    {% set price = product.price %}
+                {% endif %}
+
+                {% if product.presetReducedPrice is defined %}
+                    {% set reducedPrice = product.presetReducedPrice %}
+                {% else %}
+                    {% set reducedPrice = product.reducedPrice %}
+                {% endif %}
+
+                {% if reducedPrice > 0 %}
+                    {% if price == price // 1 %}
+                        {% set price = price|number_format(0) %}
+                    {% else %}
+                        {% set price = price|number_format(2) %}
+                    {% endif %}
+                    {#<del class="mod-info-price-extended">#}
+                    {{ price|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    {#</del>#}
+                    {% if reducedPrice == reducedPrice // 1 %}
+                        {% set rprice = reducedPrice|number_format(0) %}
+                    {% else %}
+                        {% set rprice = reducedPrice|number_format(2) %}
+                    {% endif %}
+                    {#<ins class="mod-info-price-reduced">
+                        {{ rprice|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </ins>#}
+                    {#<span class="mod-info-price-discount">#}
+                    (-{{ (100 - rprice / price * 100)|number_format(0) }}%)
+                    {#</span>#}
+                {% else %}
+                    {% if price == price // 1 %}
+                        {% set price = price|number_format(0) %}
+                    {% else %}
+                        {% set price = price|number_format(2) %}
+                    {% endif %}
+                    {#<span class="mod-info-price-main">#}
+                    {{ price|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    {#</span>#}
+                {% endif %}
+            </span>
+            <img class="img-responsive" src="{{ product.principalImageId|resize({'width':300, 'height':300, 'type':5, 'slug': product['slug_'~app.request.locale] }) }}" alt="{{ product_name }}">
+        </a>
+        <div class="brick-info">
+            <span class="brick-name">
+                {{ product_name }}
+            </span>
+            <span class="brick-by">
+                by
+                {{ product.shop_name }}
+            </span>
+            <span class="brick-city">
+                {{ product.shop.shopAddress.cityName }}
+            </span>
+        </div>
+    </div>
+</div>

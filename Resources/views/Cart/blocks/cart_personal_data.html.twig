@@ -1,0 +1,32 @@
+{# Title #}
+<div class="row">
+    <div class="col col-sm-12">
+        <h2>{% trans %}_Your_data{% endtrans %}</h2>
+    </div>
+</div>
+
+{# Personal data #}
+<div class="row">
+    <div class="col col-sm-12">
+        <dl class="cart-personal-data">
+
+            <dt>{% trans %}_Name{% endtrans %}</dt>
+            <dd>{{ address.recipientName }} {{ address.recipientSurname }}</dd>
+            
+            <dt>{% trans %}_Address{% endtrans %}</dt>
+            <dd>
+                {{ address.address }}
+                {% if address.addressMore %}<br>{{ address.addressMore }}<br>{% endif %}
+                {{ address.postalCode }}, {{ address.cityName }}<br>
+                {{ address.country }}
+            </dd>
+            
+            <dt>{% trans %}_Phone{% endtrans %}</dt>
+            <dd>{{ address.phone }} {% if address.mobilePhone %}{{ address.mobilePhone }}{% endif %}</dd>
+            
+            <dt>{% trans %}_Email{% endtrans %}</dt>
+            <dd>{{ address.customer.email }}</dd>
+            
+        </dl>
+    </div>
+</div>

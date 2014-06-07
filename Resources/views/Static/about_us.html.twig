@@ -1,0 +1,70 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+{# Hands up!
+   This view uses translations from the 'WebBundle', to facilitate
+   the maintenance of texts.
+   This view uses images from the 'WebBundle', because desktop
+   image sizes are valid for this particular case.
+#}
+
+{% block content_inner %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <h1>{% trans %}_Our_team{% endtrans %}</h1>
+                <h2>{% trans %}_From_the_stylish_sidestreets_of{% endtrans %}.</h2>
+                <p>
+                    <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/skyline.png') }}" alt=" ">
+                </p>
+                <p>{% trans %}_Enjoy_products_with_personality{% endtrans %}</p>
+                <p>{% trans %}_Chicplace_brings_you_the_best{% endtrans %}</p>
+                <h2>{% trans %}_The_team{% endtrans %}</h2>
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/ale.png') }}" alt="Alejandra Casal - Graphic Designer">
+                    </div>
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/audrey.png') }}" alt="Audrey Maman - Commercial Assistant">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/denys.png') }}" alt="Denys Pasishnyi - Web Developer">
+                    </div>
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/franc.png') }}" alt="Franc Carreras - Founder">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/gonzalo.png') }}" alt="Gonzalo Míguez - CTO">
+                    </div>
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/marta.png') }}" alt="Pilar Rubio - Market Manager Madrid">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/merce.png') }}" alt="Mercè Fernàndez - Market Manager Barcelona">
+                    </div>
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/myriam.png') }}" alt="Myriam Salakdji - Market Manager France">
+                    </div>
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/olga.png') }}" alt="Olga de Mena - Partner Care">
+                    </div>
+                    <div class="col col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/chicplaceweb/img/team/sergi.png') }}" alt="Sergi Pastor - Co-founder &amp; Marketing Manager">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content_inner %}

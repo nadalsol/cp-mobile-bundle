@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col col-sm-12">
+
+        <h1>{% trans %}_Secure_payment{% endtrans %}</h1>
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <label for="cc-number-1">{% trans %}_Card_number{% endtrans %}</label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-sm-3">
+                <input type="text" name="cc-number-1" id="cc-number-1" placeholder="1234" class="form-control" required>
+            </div>
+            <div class="col col-sm-3">
+                <input type="text" name="cc-number-2" id="cc-number-2" placeholder="5678" class="form-control" required>
+            </div>
+            <div class="col col-sm-3">
+                <input type="text" name="cc-number-3" id="cc-number-3" placeholder="9012" class="form-control" required>
+            </div>
+            <div class="col col-sm-3">
+                <input type="text" name="cc-number-4" id="cc-number-4" placeholder="3456" class="form-control" required>
+            </div>
+            <span id="card-number-error" class="help-block"></span>
+        </div>
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <label for="cc-expiration-month">{% trans %}_Expiry_date{% endtrans %}</label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-sm-4">
+                <select name="cc-expiration-month" id="cc-expiration-month" class="form-control" required>
+                    {% for i in 1..31 %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col col-sm-4">
+                <select name="cc-expiration-year" id="cc-expiration-year" class="form-control" required>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+            <span id="card-expiry-error" class="help-block"></span>
+        </div>
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <label for="cc-cvc">{% trans %}_Security_code{% endtrans %}</label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-sm-4">
+                <input type="text" name="cc-cvc" id="cc-cvc" placeholder="123" class="form-control" required>
+            </div>
+            <div class="col col-sm-8">
+                <span class="help-block">Lorem ipsum Nostrud tempor in tempor minim qui dolore.</span>
+            </div>
+            <span id="card-cvc-error" class="help-block"></span>
+        </div>
+
+    </div>
+</div>

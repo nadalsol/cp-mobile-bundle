@@ -1,0 +1,24 @@
+{# Flash Messages
+ #
+ # Provide contextual feedback messages for typical user actions
+ # with the handful of available and flexible alert messages.
+ #
+ # Parameters
+ # -----------
+ # flashMessage : Required message text, to render the alert box.
+ #
+ # id (optional): Optional parameter, useful for JS hooks.
+ #
+ # class        : Required to specify an alert style.
+ #                Choose from 'alert-success', 'alert-info',
+ #                'alert-warning' or 'alert-danger'
+ #                (if no class is specified, 'alert-warning'
+ #                will be used as default).
+ #}
+
+{% if flashMessage %}
+    <div{% if id %} id="{{ id }}"{% endif %} class="alert alert-dismissable{% if class %} {{ class }}{% else %} alert-warning{% endif %}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{ flashMessage | trans | raw }}
+    </div>
+{% endif %}

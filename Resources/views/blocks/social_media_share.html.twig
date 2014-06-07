@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col col-sm-12">
+        <ul class="social social-share" id="social-share-{#{ entity_id }#}">
+            <li class="facebook">
+                {# https://developers.facebook.com/docs/reference/plugins/like/    for AJAX (https://developers.facebook.com/docs/reference/javascript/FB.XFBML.parse/): #}
+                <div id="fb-root"></div>
+                <div class="fb-like" data-href="{{ url }}" data-width="{{ 'facebook_button_width'|trans }}" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+            </li>
+            <li class="pinterest">
+                {# Pinterest (http://business.pinterest.com/widget-builder/#do_pin_it_button) #}
+                <a href="//pinterest.com/pin/create/button/?url={{ url }}&media={{ media }}&description={{ description }}" data-pin-do="buttonPin" data-pin-config="beside">
+                    <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png">
+                </a>
+            </li>
+            <li class="twitter">
+                {# Twitter (https://twitter.com/about/resources/buttons#tweet) #}
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ url }}" data-text="{{ description }}" data-via="{{ '_Twitter_via'|trans }}" data-lang="{{ app.request.locale }}" data-count="none">{{ '_Tweet'|trans }}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    // Load the SDK asynchronously
+    if (typeof (FB) == 'undefined') {
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/{{ 'lang_code_complete'|trans }}/all.js#appId=288590684581745&channelUrl=//www.chicplace.com/&status=false&xfbml=true";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    }
+
+    function renderAjax(){
+        if (typeof (FB) != 'undefined') {
+            FB.XFBML.parse();
+        }
+
+        if (typeof (twttr) != 'undefined') {
+            twttr.widgets.load();
+        } else {
+            if (typeof ($) != 'undefined') {
+                $.getScript('http://platform.twitter.com/widgets.js');
+            } else {
+                (function(d, t) {
+                    var g = d.createElement(t), // create a script tag
+                            s = d.getElementsByTagName(t)[0]; // find the first script tag in the document
+                    g.src = 'http://platform.twitter.com/widgets.js'; // set the source of the script to your script
+                    s.parentNode.insertBefore(g, s); // append the script to the DOM
+                }(document, 'script'));
+            }
+
+        }
+    }
+
+    renderAjax();
+</script>

@@ -1,0 +1,15 @@
+ChicplaceMobileBundle:
+    resource: "@ChicplaceMobileBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+
+homepage_redirect:
+    pattern: /
+    requirements:
+    defaults: { _controller: "ChicplaceMobileBundle:Home:redirect"}
+
+homepage:
+    pattern: /{_locale}
+    requirements:
+        _locale: es|en|it|fr
+    defaults: { _controller: "ChicplaceMobileBundle:Home:index"}

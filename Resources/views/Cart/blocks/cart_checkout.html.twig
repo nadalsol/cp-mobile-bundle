@@ -1,0 +1,122 @@
+<div class="row">
+    <div class="col col-sm-12">
+
+        <h1>{% trans %}_Cart{% endtrans %}</h1>
+        
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>{% trans %}_Name{% endtrans %}</th>
+                    <th class="text-center">{% trans %}_Quantity{% endtrans %}</th>
+                    <th class="text-right">{% trans %}_Price{% endtrans %}</th>
+                    <th class="text-right">{% trans %}_Remove{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cartline in cart.lines %}
+                    {% set itemsPrice = cartline.price %}
+                    <tr>
+                        <td>
+                            {{ cartline.item }}
+                            {% if cartline.customizations|length > 0 %}
+                            <ul>
+                            {% for key, value in cartline.customizations %}
+                                <li>{{ customizations[cartline.id][key]['label'] }}
+                                {% if customizations[cartline.id][key]['img']  %}
+                                    <img src="{{ customizations[cartline.id][key]['img']|resize({'height': 60, 'width': 60, 'type': 3, 'for': cartline.item.product}) }}">
+                                {% else %}
+                                    {{ customizations[cartline.id][key]['value'] }}
+                                {% endif %}
+                                </li>
+                            {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <select class="form-control js-cart-item-stock" data-seturl="{{ url("cartline_set_quantity", {"cartline_id" : cartline.id}) }}">
+                                {% for y in 1..cartline.item.stock %}
+                                    <option value="{{ y }}" {% if cartline.quantity == y %}selected="selected"{% endif %}>{{ y }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td class="text-right text-highlight">
+                            {{ (itemsPrice)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ url("cartline_remove", {"cartline_id" : cartline.id}) }}" title="{% trans %}_Remove{% endtrans %}">
+                                <span class="icon icon-remove icon-xs icon-primary"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <table class="table table-light">
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="collapser collapser-cart">
+                            <a class="collapser-trigger" href="#">
+                                {% trans %}_Have_discount{% endtrans %}
+                                <span class="icon icon-chevron-right icon-xs icon-primary"></span>
+                            </a>
+                            <div class="collapser-content row">
+                                <div class="col col-sm-9">
+                                    <input type="text" name="cart-coupon" id="cart-coupon" class="form-control">
+                                </div>
+                                <div class="col col-sm-3">
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        {{ '_Ok'|trans|upper }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="table-row-highlight">
+                    <td>
+                        {% trans %}_Total_products{% endtrans %}
+                        ({% trans %}_VAT_included{% endtrans %})
+                    </td>
+                    <td class="text-right">
+                        {{ (cart.priceProducts - cartTotalDiscount)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </td>
+                </tr>
+                <tr class="table-row-highlight">
+                    <td>
+                        {% trans %}_Total_shipping{% endtrans %}*
+                        ({% trans %}_VAT_included{% endtrans %})
+                    </td>
+                    <td class="text-right">
+                        {{ (cart.priceShipping)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </td>
+                </tr>
+                {% for coupon in cart.coupons %}
+                    {% if coupon.code != 'AUTO_LINE' %}
+                        <tr class="table-row-outstanding">
+                            <td>
+                                {{ coupon.name }}
+                                <a href="#" title="{% trans %}_Remove{% endtrans %}">
+                                    <span class="icon icon-remove icon-xs icon-primary"></span>
+                                </a>
+                            </td>
+                            <td class="text-right">
+                                -{{ (coupon.absoluteValue)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                <tr class="table-row-totals-lg">
+                    <td>
+                        {{ '_Total'|trans|upper }}
+                    </td>
+                    <td class="text-right">
+                        {{ (cart.price)|print_price('EUR', app.request.getSession().get('currency', 'EUR')) }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

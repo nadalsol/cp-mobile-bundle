@@ -1,0 +1,31 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+{# Hands up!
+   This view uses translations from the 'WebBundle', to facilitate
+   the maintenance of texts.
+#}
+
+{% block content_inner %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <h1>{% trans %}_Privacy_policy{% endtrans %}</h1>
+                <p>{% trans %}_Every_time_you_use_this_website{% endtrans %}.</p>
+                <p>{% trans %}_Personal_data_you_give_us{% endtrans %}:</p>
+                <ol>
+                    <li>{% trans %}_the_development_implementation_and_execution{% endtrans %};</li>
+                    <li>{% trans %}_respond_to_the_requests_you_put_forward_to_us{% endtrans %};</li>
+                    <li>{% trans %}_provide_you_with_information_about{% endtrans %}</li>
+                </ol>
+                <p>{% trans %}_As_responsible_for_the_file{% endtrans %}.</p>
+                <p>{% trans %}_Pursuant_to_the_provisions_of_Law{% endtrans %}.</p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content_inner %}

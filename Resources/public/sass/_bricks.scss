@@ -1,0 +1,85 @@
+//
+// Bricks
+// --------------------------------------------------
+
+
+// Base class
+// --------------------
+
+//.brick {}
+
+
+// Sub-classes
+// --------------------
+
+// Brick Default
+.brick-default {
+  margin-bottom: $line-height-computed;
+  .brick-info {
+    margin-top: $line-height-computed / 4;
+    > span {
+      display: block;
+      @include text-overflow;
+    }
+  }
+  .brick-name {
+    @extend .h3;
+    margin-bottom: 0;
+  }
+  .brick-by {
+    @extend .h4;
+    margin-bottom: 0;
+  }
+  .brick-city {
+    @extend .h4;
+    margin-bottom: 0;
+  }
+}
+
+// Brick Item (aka 'Product')
+.brick-item {
+  margin-bottom: $line-height-computed / 2;
+  .brick-info {
+    margin-top: $line-height-computed / 4;
+    > span {
+      display: block;
+      @include text-overflow;
+    }
+  }
+  .brick-name {
+    @extend .h2;
+    margin-bottom: 0;
+  }
+  .brick-by {
+    @extend .h4;
+    margin-bottom: 0;
+    font-size: $font-size-base;
+    line-height: 1.2;
+  }
+  .brick-price {
+    @extend .h2;
+    margin-bottom: 0;
+  }
+}
+
+// Brick Shop
+.brick-shop {
+  margin-bottom: $line-height-computed / 2;
+  .brick-info {
+    margin-bottom: $line-height-computed / 2;
+    > span {
+      display: block;
+      @include text-overflow;
+    }
+  }
+  .brick-name {
+    @extend .h2;
+    margin-bottom: 0;
+  }
+  .brick-by {
+    @extend .h4;
+    margin-bottom: 0;
+    font-size: $font-size-base;
+    line-height: 1.2;
+  }
+}

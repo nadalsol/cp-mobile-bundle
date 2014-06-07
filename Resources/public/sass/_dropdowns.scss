@@ -1,0 +1,105 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+
+
+// Base class
+// --------------------
+
+.dropdown {
+  position: relative;
+}
+
+
+// Sub-classes
+// --------------------
+
+// Dropdown menu
+.dropdown-menu {
+  @include positioner(fixed, top, $header-height, left, 0, 30);
+  width: 100%;
+  background-color: $white;
+  @include box-shadow(0 5px 10px rgba(0,0,0,.15));
+}
+
+// Dropdown search
+.dropdown-search {
+  @include positioner(fixed, top, $header-height, left, 0, 30);
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: $gray-lightest;
+  @include box-shadow(0 5px 10px rgba(0,0,0,.15));
+}
+
+
+// Inner classes
+// --------------------
+
+// Dropdown menu
+.dropdown-menu-categories {
+  background-color: $white;
+  font-size: $font-size-md;
+  ul {
+    @include list-reset;
+  }
+  li {
+    border-top: 1px dotted $gray-lighter;
+    &:first-child {
+      border-top: none;
+    }
+  }
+  a {
+    display: block; // Ensures proper link size for touch-screen mobile devices
+    @include text-overflow;
+    padding: 16px 10px 4px;
+    color: $gray-darker;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $link-color;
+    }
+  }
+}
+.dropdown-menu-about {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: lighten($brand-primary, 25%);
+  font-size: $font-size-sm;
+  ul {
+    @include list-reset;
+  }
+  a {
+    display: block; // Ensures proper link size for touch-screen mobile devices
+    @include text-overflow;
+    padding: 8px 10px;
+    color: $gray-dark;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $link-hover-color;
+    }
+  }
+  .dropdown-menu-about-lang {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+// Dropdown search
+.dropdown-search-form {
+  @include clearfix;
+  .form-control {
+    float: left;
+    width: 85%;
+    margin-right: 3%;
+    border: none;
+  }
+  .btn {
+    width: 12%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col col-sm-12">
+        {% set description = product.description %}
+        {% if product.description | length < 3 %}
+            {% set description = product.shortDescription %}
+        {% endif %}
+        {{ description | raw }}
+    </div>
+</div>

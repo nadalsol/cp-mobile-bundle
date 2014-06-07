@@ -1,0 +1,34 @@
+{% set count = 1 %}
+{% for bannerZone in bannerZones %}
+    {% for banner in bannerZone.banners %}
+        {% if bannerZone.code == "mobile-home-fixed-1" %}
+            <div class="row">
+                <div class="col col-sm-12">
+                    <div class="brick brick-default">
+                        <a class="wrap-media"  href="{{ banner.url }}" {% if banner.description %} title="{{ banner.description }}"{% endif %}>
+                            <img class="img-responsive" src="{{ asset(banner.getPrincipalImage()|resize({'height': bannerZone.height, 'width': bannerZone.width, 'type': 1 })) }}" alt="{{ banner.description }}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% if count % 2 == 0 %}
+                <div class="row">
+            {% endif %}
+                <div class="col col-sm-6">
+                    <div class="brick brick-default">
+                        <a class="wrap-media wrap-media-overlap"  href="{{ banner.url }}" {% if banner.description %} title="{{ banner.description }}"{% endif %}>
+                            <span class="btn btn-tag btn-tag-t btn-tag-l">
+                                {{ banner.name }}
+                            </span>
+                            <img class="img-responsive" src="{{ asset(banner.getPrincipalImage()|resize({'height': bannerZone.height, 'width': bannerZone.width, 'type': 1 })) }}" alt="{{ banner.description }}">
+                        </a>
+                    </div>
+                </div>
+            {% if count % 2 == 1 %}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {% set count = count + 1 %}
+{% endfor %}

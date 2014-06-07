@@ -1,0 +1,31 @@
+{% extends 'ChicplaceMobileBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+{# Hands up!
+   This view uses translations from the 'WebBundle', to facilitate
+   the maintenance of texts.
+#}
+
+{% block content_inner %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col col-sm-12">
+                <h1>{% trans %}_May_I_help_you{% endtrans %}</h1>
+            </div>
+        </div>
+
+        {# Contact form - temporary removed Mobi#}
+        {#{% include "ChicplaceMobileBundle:Static:blocks/contact_form.html.twig" %}#}
+
+        {# Contact us addresses #}
+        {% include "ChicplaceMobileBundle:Static:blocks/contact_us_addresses.html.twig" %}
+
+        {# Contact other addresses #}
+        {% include "ChicplaceMobileBundle:Static:blocks/contact_other_addresses.html.twig" %}
+
+    </div>
+
+{% endblock content_inner %}
